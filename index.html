@@ -802,16 +802,80 @@ function showTab(tab) {
                     <div style="display:flex;flex-direction:column;gap:0.5rem">
                         <label style="display:flex;align-items:center;gap:10px;padding:0.75rem;border:1.5px solid #eee;border-radius:8px;cursor:pointer" id="opt-oficina">
                             <input type="radio" name="entrega" value="oficina" checked onchange="selectEntrega(this)">
-                            <div><p style="font-weight:600;font-size:0.85rem;margin:0">Retiro en oficina Santiago — Gratis</p><p style="font-size:0.75rem;color:#888;margin:2px 0 0">Abdón Cifuentes 215 · 09:00 a 17:00 hrs</p></div>
+                            <div>
+                                <p style="font-weight:600;font-size:0.85rem;margin:0">Retiro en oficina Santiago — <span style="color:#1D9E75">Gratis</span></p>
+                                <p style="font-size:0.75rem;color:#888;margin:2px 0 0">Abdón Cifuentes 215 · 09:00 a 17:00 hrs</p>
+                            </div>
                         </label>
                         <label style="display:flex;align-items:center;gap:10px;padding:0.75rem;border:1.5px solid #eee;border-radius:8px;cursor:pointer" id="opt-domicilio">
                             <input type="radio" name="entrega" value="domicilio" onchange="selectEntrega(this)">
-                            <div><p style="font-weight:600;font-size:0.85rem;margin:0">Despacho a domicilio — Blue Express</p><p style="font-size:0.75rem;color:#888;margin:2px 0 0">Incluye etiqueta de retorno prepagada</p></div>
+                            <div>
+                                <p style="font-weight:600;font-size:0.85rem;margin:0">Despacho a domicilio — Blue Express</p>
+                                <p style="font-size:0.75rem;color:#888;margin:2px 0 0">Incluye etiqueta de retorno prepagada · precio según región</p>
+                            </div>
                         </label>
                         <label style="display:flex;align-items:center;gap:10px;padding:0.75rem;border:1.5px solid #eee;border-radius:8px;cursor:pointer" id="opt-puntoBX">
                             <input type="radio" name="entrega" value="puntoBX" onchange="selectEntrega(this)">
-                            <div><p style="font-weight:600;font-size:0.85rem;margin:0">Punto Blue Express</p><p style="font-size:0.75rem;color:#888;margin:2px 0 0">Retira en el punto más cercano a ti</p></div>
+                            <div>
+                                <p style="font-weight:600;font-size:0.85rem;margin:0">Punto Blue Express</p>
+                                <p style="font-size:0.75rem;color:#888;margin:2px 0 0">Retira en el punto más cercano · precio según región</p>
+                            </div>
                         </label>
+                    </div>
+
+                    <!-- SELECTOR DE REGIÓN (aparece al elegir BX) -->
+                    <div id="region-selector" style="display:none;margin-top:0.75rem">
+                        <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:6px">Selecciona tu región *</label>
+                        <select id="select-region" onchange="calcDespacho()" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif;background:#fff;color:#1E2B35">
+                            <option value="">— Selecciona tu región —</option>
+                            <optgroup label="Zona RM">
+                                <option value="RM">Región Metropolitana</option>
+                            </optgroup>
+                            <optgroup label="Zona Centro">
+                                <option value="Centro">Atacama</option>
+                                <option value="Centro">Coquimbo</option>
+                                <option value="Centro">Valparaíso</option>
+                                <option value="Centro">O'Higgins</option>
+                                <option value="Centro">Maule</option>
+                                <option value="Centro">Ñuble</option>
+                                <option value="Centro">Biobío</option>
+                                <option value="Centro">Araucanía</option>
+                                <option value="Centro">Los Ríos</option>
+                                <option value="Centro">Los Lagos</option>
+                            </optgroup>
+                            <optgroup label="Zona Extremo">
+                                <option value="Extremo">Arica y Parinacota</option>
+                                <option value="Extremo">Tarapacá</option>
+                                <option value="Extremo">Antofagasta</option>
+                                <option value="Extremo">Aysén</option>
+                                <option value="Extremo">Magallanes</option>
+                            </optgroup>
+                        </select>
+
+                        <!-- RESULTADO DESPACHO -->
+                        <div id="despacho-result" style="display:none;margin-top:0.6rem;background:#f0f9f4;border:1px solid #9FE1CB;border-radius:8px;padding:0.75rem">
+                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                                <span style="font-size:0.78rem;color:#085041;font-weight:600" id="despacho-label">Costo de despacho</span>
+                                <span style="font-size:1rem;font-weight:800;color:#0F6E56" id="despacho-price">$0</span>
+                            </div>
+                            <p style="font-size:0.72rem;color:#0F6E56;margin:0" id="despacho-detalle"></p>
+                        </div>
+                    </div>
+
+                    <!-- RESUMEN TOTAL CON DESPACHO -->
+                    <div id="total-con-despacho" style="display:none;margin-top:0.75rem;background:#1E2B35;border-radius:10px;padding:0.85rem">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+                            <span style="font-size:0.78rem;color:rgba(255,255,255,0.6)">Arriendo</span>
+                            <span style="font-size:0.82rem;color:#fff;font-weight:600" id="total-arriendo-line">$0</span>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+                            <span style="font-size:0.78rem;color:rgba(255,255,255,0.6)">Despacho Blue Express</span>
+                            <span style="font-size:0.82rem;color:#fff;font-weight:600" id="total-despacho-line">$0</span>
+                        </div>
+                        <div style="border-top:1px solid rgba(255,255,255,0.15);padding-top:8px;display:flex;justify-content:space-between">
+                            <span style="font-size:0.88rem;font-weight:700;color:#fff">Total a pagar</span>
+                            <span style="font-size:1.1rem;font-weight:800;color:#E84A0C" id="total-final-line">$0</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -894,7 +958,8 @@ function goStep(n) {
         ind.style.fontWeight = i === n ? '700' : '500';
     }
     if (n === 3) {
-        document.getElementById('final-total').textContent = formatCLP(currentTotal);
+        var total = currentTotal + currentDespacho;
+        document.getElementById('final-total').textContent = formatCLP(total);
     }
     currentStep = n;
     document.getElementById('cart-drawer').scrollTop = 0;
@@ -932,11 +997,47 @@ function calcPrice() {
     btn.style.cursor = 'pointer';
 }
 
+var TARIFAS_BX = {
+    RM:      { domicilio: 6990, puntoBX: 5990 },
+    Centro:  { domicilio: 9990, puntoBX: 8990 },
+    Extremo: { domicilio: 11990, puntoBX: 10990 }
+};
+var currentDespacho = 0;
+
 function selectEntrega(radio) {
     ['oficina','domicilio','puntoBX'].forEach(function(v) {
         var el = document.getElementById('opt-' + v);
         if (el) el.style.borderColor = v === radio.value ? '#E84A0C' : '#eee';
     });
+    var showRegion = (radio.value === 'domicilio' || radio.value === 'puntoBX');
+    document.getElementById('region-selector').style.display = showRegion ? 'block' : 'none';
+    document.getElementById('total-con-despacho').style.display = 'none';
+    document.getElementById('despacho-result').style.display = 'none';
+    if (!showRegion) {
+        currentDespacho = 0;
+        document.getElementById('select-region').value = '';
+    }
+}
+
+function calcDespacho() {
+    var zona = document.getElementById('select-region').value;
+    if (!zona) return;
+    var modalidad = document.querySelector('input[name="entrega"]:checked').value;
+    var costo = TARIFAS_BX[zona][modalidad];
+    currentDespacho = costo;
+
+    var zonaLabel = zona === 'RM' ? 'Región Metropolitana' : zona;
+    var modalidadLabel = modalidad === 'domicilio' ? 'domicilio' : 'punto Blue Express';
+    document.getElementById('despacho-label').textContent = 'Despacho ' + modalidadLabel + ' — Zona ' + zonaLabel;
+    document.getElementById('despacho-price').textContent = formatCLP(costo);
+    document.getElementById('despacho-detalle').textContent = 'Incluye envío de ida + etiqueta de retorno prepagada';
+    document.getElementById('despacho-result').style.display = 'block';
+
+    var totalConDespacho = currentTotal + costo;
+    document.getElementById('total-arriendo-line').textContent = formatCLP(currentTotal);
+    document.getElementById('total-despacho-line').textContent = formatCLP(costo);
+    document.getElementById('total-final-line').textContent = formatCLP(totalConDespacho);
+    document.getElementById('total-con-despacho').style.display = 'block';
 }
 
 function togglePay() {
