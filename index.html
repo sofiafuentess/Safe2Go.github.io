@@ -828,30 +828,31 @@ function showTab(tab) {
                 <p style="font-size:0.85rem;color:#666;margin-bottom:0.25rem">A pagar hoy</p>
                 <p style="font-size:2rem;font-weight:800;color:#E84A0C;font-family:'Space Grotesk',sans-serif" id="final-total">$0</p>
                 <div style="display:inline-block;background:rgba(232,74,12,0.1);padding:4px 14px;border-radius:20px;margin-top:0.5rem">
-                    <p style="font-size:0.75rem;font-weight:600;color:#E84A0C"><i class="fa-solid fa-lock"></i> Garantía reembolsable de $100.000</p>
+                    <p style="font-size:0.75rem;font-weight:600;color:#E84A0C"><i class="fa-solid fa-shield-halved"></i> Garantía reembolsable de $100.000</p>
                 </div>
+                <p style="font-size:0.72rem;color:#888;margin-top:0.4rem;line-height:1.5">Recibirás el link de pago de la garantía por correo electrónico una vez confirmado el pago del arriendo.</p>
                 <p style="font-size:0.75rem;color:#aaa;margin-top:0.5rem"><i class="fa-solid fa-shield-check"></i> Conexión bancaria 100% encriptada</p>
             </div>
 
             <div style="background:#f8f9fa;border-radius:8px;padding:0.85rem;margin-bottom:1rem">
                 <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer">
                     <input type="checkbox" id="legal-check" style="margin-top:3px" onchange="togglePay()">
-                    <span style="font-size:0.78rem;color:#666;line-height:1.5">He leído y acepto que la <strong>garantía de $100.000 cubre excedentes de mensajería y daños menores</strong>. Acepto responsabilidad por el valor de reposición en caso de pérdida o robo.</span>
+                    <span style="font-size:0.78rem;color:#666;line-height:1.6">He leído y acepto los <a href="https://drive.google.com/file/d/1OJlIHudFYjwCb7YuSRJfyWXsMJH6CBkp/view?usp=sharing" target="_blank" style="color:#E84A0C;font-weight:700;text-decoration:underline">Términos y Condiciones</a> de Safe2Go, que incluyen: <strong>política de garantía reembolsable</strong> ($100.000 retenida en tarjeta y liberada automáticamente al devolver el equipo en buenas condiciones), <strong>cobertura de excedentes de mensajería satelital</strong> ($600 por mensaje sobre los 10 incluidos), <strong>responsabilidad por pérdida o robo</strong> del equipo (valor de reposición $450.000), <strong>condiciones de devolución</strong> (plazo, estado del equipo y etiqueta prepagada Blue Express) y <strong>política de cancelación y modificación</strong> de reservas.</span>
                 </label>
             </div>
 
             <p style="font-size:0.82rem;text-align:center;color:#888;margin-bottom:0.75rem">Selecciona tu método de pago</p>
 
-            <button id="btn-webpay" disabled onclick="alert('Webpay estará disponible próximamente. Para reservar escríbenos por WhatsApp.')" style="width:100%;padding:0.85rem;background:#ccc;color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:700;cursor:not-allowed;margin-bottom:0.6rem;font-family:'Space Grotesk',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px">
+            <button id="btn-webpay" disabled onclick="alert('Webpay estará disponible próximamente. Mientras tanto puedes contactarnos para coordinar tu reserva.')" style="width:100%;padding:0.85rem;background:#ccc;color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:700;cursor:not-allowed;margin-bottom:0.6rem;font-family:'Space Grotesk',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px">
                 Pagar con Webpay Plus
                 <img src="https://tbk.azureedge.net/img/wpp_p_ch-45.png" alt="Webpay" style="height:18px">
             </button>
 
-            <a href="https://wa.me/56935706918?text=Hola%20Safe2Go%2C%20quiero%20reservar%20un%20kit%20GPS%20satelital." target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:0.85rem;background:#25D366;color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;text-decoration:none;box-sizing:border-box">
-                <i class="fa-brands fa-whatsapp" style="font-size:1.1rem"></i> Reservar por WhatsApp
-            </a>
+            <button id="btn-mp" disabled onclick="alert('MercadoPago estará disponible próximamente.')" style="width:100%;padding:0.85rem;background:#ccc;color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:700;cursor:not-allowed;margin-bottom:1rem;font-family:'Space Grotesk',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px">
+                <i class="fa-solid fa-handshake"></i> Pagar con MercadoPago
+            </button>
 
-            <div style="margin-top:1rem">
+            <div style="margin-top:0.5rem">
                 <button onclick="goStep(2)" style="width:100%;padding:0.7rem;border:1.5px solid #eee;background:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;color:#666;font-family:'Inter',sans-serif">Volver a datos</button>
             </div>
         </div>
@@ -940,10 +941,14 @@ function selectEntrega(radio) {
 
 function togglePay() {
     var checked = document.getElementById('legal-check').checked;
-    var btn = document.getElementById('btn-webpay');
-    btn.disabled = !checked;
-    btn.style.background = checked ? '#0070BA' : '#ccc';
-    btn.style.cursor = checked ? 'pointer' : 'not-allowed';
+    var btnWP = document.getElementById('btn-webpay');
+    var btnMP = document.getElementById('btn-mp');
+    btnWP.disabled = !checked;
+    btnWP.style.background = checked ? '#0070BA' : '#ccc';
+    btnWP.style.cursor = checked ? 'pointer' : 'not-allowed';
+    btnMP.disabled = !checked;
+    btnMP.style.background = checked ? '#009EE3' : '#ccc';
+    btnMP.style.cursor = checked ? 'pointer' : 'not-allowed';
 }
 
 function formatCLP(n) {
