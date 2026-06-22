@@ -112,6 +112,239 @@
         .modal-opt-icon{font-size:1.25rem;flex-shrink:0}
         .modal-opt-title{font-weight:700;font-size:0.88rem;margin:0}
         .modal-opt-sub{font-size:0.8rem;opacity:0.7;margin:0}
+
+        /* ===== RESPONSIVE MOBILE ===== */
+        @media (max-width: 768px) {
+
+            /* NAVBAR */
+            .navbar {
+                padding: 0.75rem 1.25rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .nav-logo img {
+                height: 32px;
+            }
+
+            /* HERO */
+            .hero {
+                padding: 3rem 1.25rem;
+                min-height: auto;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero-inner {
+                max-width: 100%;
+            }
+            .hero .btn-primary {
+                width: 100%;
+                padding: 0.85rem;
+                font-size: 1rem;
+            }
+
+            /* SECTIONS */
+            .section, .section-alt {
+                padding: 2rem 1.25rem;
+            }
+            .section-title {
+                font-size: 1.1rem;
+            }
+
+            /* PRICING */
+            .pricing-list {
+                max-width: 100%;
+            }
+            .pricing-row {
+                padding: 0.85rem 1rem;
+            }
+            .p-name { font-size: 0.85rem; }
+            .p-days { font-size: 0.82rem; min-width: 60px; }
+            .p-price .amount { font-size: 1.05rem; }
+
+            /* STEPS */
+            .steps-grid {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+                gap: 0.75rem;
+            }
+            .step-card {
+                display: flex;
+                align-items: flex-start;
+                gap: 1rem;
+                text-align: left;
+                padding: 1.1rem;
+            }
+            .step-icon {
+                width: 44px;
+                height: 44px;
+                min-width: 44px;
+                margin: 0;
+                font-size: 1.1rem;
+            }
+
+            /* FEATURES */
+            .features-section {
+                grid-template-columns: 1fr;
+                padding: 2rem 1.25rem;
+                gap: 1.5rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.75rem;
+            }
+            .features-device {
+                height: 140px;
+                font-size: 3rem;
+            }
+
+            /* DEVICE SECTION */
+            #equipo .section, #equipo {
+                padding: 2rem 1.25rem;
+            }
+            #equipo > div {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+            #equipo [style*="grid-template-columns:0.9fr"] {
+                display: block !important;
+            }
+
+            /* TABS - scrollable on mobile */
+            #device-tabs {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                flex-wrap: nowrap;
+            }
+            #device-tabs button {
+                white-space: nowrap;
+                padding: 0.5rem 0.85rem;
+                font-size: 0.8rem;
+            }
+
+            /* FEATURES GRID in device section */
+            [style*="grid-template-columns:1fr 1fr"] {
+                grid-template-columns: 1fr 1fr !important;
+            }
+
+            /* FAQ */
+            .faq-container {
+                max-width: 100%;
+            }
+            .faq-item {
+                padding: 1rem;
+            }
+            .faq-q { font-size: 0.85rem; }
+            .faq-a { font-size: 0.8rem; }
+
+            /* CTA */
+            .cta-band {
+                padding: 2.5rem 1.25rem;
+            }
+            .cta-band h2 {
+                font-size: 1.4rem;
+            }
+            .cta-band .btn-primary {
+                width: 100%;
+                padding: 0.85rem;
+            }
+            .alliance-logos {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+            }
+
+            /* FOOTER */
+            footer {
+                padding: 2rem 1.25rem 1.25rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+
+            /* CART DRAWER */
+            #cart-drawer {
+                width: 100% !important;
+                max-width: 100vw !important;
+            }
+
+            /* MODAL */
+            #corp-modal .modal-box {
+                padding: 1.75rem 1.25rem;
+                max-width: 95vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.75rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-brand { grid-column: auto; }
+
+            /* Mobile sticky bar */
+            .mobile-sticky {
+                display: flex !important;
+            }
+        }
+
+        /* MOBILE STICKY BOTTOM BAR */
+        .mobile-sticky {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1E2B35;
+            padding: 0.75rem 1.25rem;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 500;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .mobile-sticky-price {
+            color: #fff;
+        }
+        .mobile-sticky-price span {
+            display: block;
+            font-size: 0.65rem;
+            opacity: 0.6;
+        }
+        .mobile-sticky-price strong {
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+        @media (max-width: 768px) {
+            .mobile-sticky { display: flex; }
+            body { padding-bottom: 70px; }
+        }
+
+        /* DEVICE SECTION GRID */
+        .device-wrapper > div:first-child {
+            display: grid;
+            grid-template-columns: 0.9fr 1.6fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        @media (max-width: 768px) {
+            .device-wrapper > div:first-child {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .device-inner-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -185,7 +418,7 @@
             <div class="p-price"><span class="amount">$19.990</span><span class="label">Tarifa Total</span></div>
         </div>
         <div class="pricing-row">
-            <div><p class="p-name">Aventura</p><p class="p-desc">Travesías tipo Sierra de Ramón.</p></div>
+            <div><p class="p-name">Aventura</p><p class="p-desc">Travesías tipo Torres del Paine.</p></div>
             <div class="p-days">3 días</div>
             <div class="p-price"><span class="amount">$26.990</span><span class="label">Tarifa Total</span></div>
         </div>
@@ -250,9 +483,9 @@
 
 <!-- GARMIN INREACH MINI 2 -->
 <section class="section" id="equipo" style="background:#f8f9fa">
-    <div style="max-width:1100px;margin:0 auto">
+    <div style="max-width:1100px;margin:0 auto" class="device-wrapper">
         <p style="font-size:0.75rem;font-weight:700;letter-spacing:2px;color:#E84A0C;margin-bottom:0.5rem">LO QUE LLEVAS EN EL KIT SAFE2GO</p>
-        <div style="display:grid;grid-template-columns:0.9fr 1.6fr;gap:3rem;align-items:start">
+        <div class="device-inner-grid" style="display:grid;grid-template-columns:0.9fr 1.6fr;gap:3rem;align-items:start">
 
             <!-- IZQUIERDA: imagen + specs -->
             <div>
@@ -443,7 +676,7 @@ function showTab(tab) {
 <section class="cta-band">
     <h2>No arriesgues tu vida ni la<br>tranquilidad de tu familia.</h2>
     <button class="btn-primary" style="font-size:1rem;padding:0.85rem 2.5rem;" onclick="openCart()">RESERVA AHORA Y EXPLORA SEGURO</button>
-    <p>Organiza tu aventura ¡Reserva con tiempo!</p>
+    <p>Equipos disponibles para este fin de semana. ¡Reserva con tiempo!</p>
     <div class="alliances">
         <p>NUESTRAS ALIANZAS</p>
         <div class="alliance-logos">
@@ -461,7 +694,7 @@ function showTab(tab) {
     <div class="footer-grid">
         <div class="footer-brand">
             <h2>Safe2Go</h2>
-            <p>Explora lejos, vuelve seguro.<br>Seguridad satelital para los Andes y el mundo</p>
+            <p>Explora lejos, vuelve seguro.<br>Seguridad satelital para los Andes desde 2023.</p>
         </div>
         <div class="footer-col">
             <h3>SERVICIOS</h3>
@@ -511,7 +744,7 @@ function showTab(tab) {
 
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem">
                 <div>
-                    <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">Fecha de inicio *</label>
+                    <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">Fecha de retiro *</label>
                     <input type="date" id="cart-start" oninput="calcPrice()" style="width:100%;padding:0.6rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
                 </div>
                 <div>
@@ -717,6 +950,15 @@ function formatCLP(n) {
     return '$' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 }
 </script>
+
+<!-- MOBILE STICKY BAR -->
+<div class="mobile-sticky">
+    <div class="mobile-sticky-price">
+        <span>Desde</span>
+        <strong>$12.990 <span style="font-size:0.75rem;font-weight:400;opacity:0.7">/día</span></strong>
+    </div>
+    <button class="btn-primary" onclick="openCart()" style="padding:0.6rem 1.25rem;font-size:0.85rem;">Reservar Kit</button>
+</div>
 
 </body>
 </html>
