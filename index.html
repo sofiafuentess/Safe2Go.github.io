@@ -763,9 +763,12 @@ function showTab(tab) {
                     <span style="font-size:0.95rem;font-weight:700;color:#1E2B35">A pagar hoy</span>
                     <span style="font-size:1.1rem;font-weight:800;color:#E84A0C" id="summary-total">$0</span>
                 </div>
-                <div style="background:rgba(232,74,12,0.06);border:1px solid rgba(232,74,12,0.15);border-radius:8px;padding:0.6rem;display:flex;justify-content:space-between;align-items:center;margin-top:0.5rem">
-                    <span style="font-size:0.78rem;font-weight:600;color:#E84A0C"><i class="fa-solid fa-shield-halved"></i> Garantía reembolsable</span>
-                    <span style="font-size:0.82rem;font-weight:700;color:#E84A0C">$100.000</span>
+                <div style="background:rgba(232,74,12,0.06);border:1px solid rgba(232,74,12,0.15);border-radius:8px;padding:0.75rem;margin-top:0.5rem">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
+                        <span style="font-size:0.78rem;font-weight:600;color:#E84A0C"><i class="fa-solid fa-shield-halved"></i> Garantía reembolsable</span>
+                        <span style="font-size:0.82rem;font-weight:700;color:#E84A0C">$100.000</span>
+                    </div>
+                    <p style="font-size:0.72rem;color:#b85a1a;line-height:1.45;margin:0">Recibirás el link de pago de la garantía por correo electrónico una vez confirmado el pago del arriendo.</p>
                 </div>
                 <div id="tramo-badge" style="margin-top:0.5rem;text-align:center">
                     <span style="background:#1E2B35;color:#fff;font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:4px;letter-spacing:0.5px"></span>
@@ -780,7 +783,7 @@ function showTab(tab) {
             <div style="display:flex;flex-direction:column;gap:0.75rem">
                 <div>
                     <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">Nombre completo *</label>
-                    <input type="text" id="inp-nombre" placeholder="Ej. Juan Pérez" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
+                    <input type="text" id="inp-nombre" placeholder="Nombre y apellido" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
                 </div>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem">
                     <div>
@@ -804,7 +807,7 @@ function showTab(tab) {
                             <input type="radio" name="entrega" value="oficina" checked onchange="selectEntrega(this)">
                             <div>
                                 <p style="font-weight:600;font-size:0.85rem;margin:0">Retiro en oficina Santiago — <span style="color:#1D9E75">Gratis</span></p>
-                                <p style="font-size:0.75rem;color:#888;margin:2px 0 0">Abdón Cifuentes 215 · 09:00 a 17:00 hrs</p>
+                                <p style="font-size:0.75rem;color:#888;margin:2px 0 0">Abdón Cifuentes 215, Santiago · Metro República · 09:00 a 17:00 hrs</p>
                             </div>
                         </label>
                         <label style="display:flex;align-items:center;gap:10px;padding:0.75rem;border:1.5px solid #eee;border-radius:8px;cursor:pointer" id="opt-domicilio">
