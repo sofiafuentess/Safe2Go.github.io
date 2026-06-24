@@ -40,12 +40,12 @@
 
         /* PRICING */
         .pricing-list{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:0.75rem}
-        .pricing-row{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.5rem;background:#f8f9fa;border-radius:12px;position:relative;border:1.5px solid transparent}
+        .pricing-row{display:grid;grid-template-columns:1fr 80px 120px;align-items:center;padding:1.1rem 1.5rem;background:#f8f9fa;border-radius:12px;position:relative;border:1.5px solid transparent;gap:1rem}
         .pricing-row.popular{background:#fff;border-color:#E84A0C}
         .popular-badge{position:absolute;top:-11px;left:1.25rem;background:#E84A0C;color:#fff;font-size:0.68rem;font-weight:800;padding:3px 12px;border-radius:4px;letter-spacing:0.5px}
         .p-name{font-weight:700;font-size:0.95rem;color:#1E2B35}
         .p-desc{font-size:0.8rem;color:#888;margin-top:3px}
-        .p-days{font-weight:700;font-size:0.92rem;color:#1E2B35;min-width:80px;text-align:center}
+        .p-days{font-weight:700;font-size:0.92rem;color:#1E2B35;text-align:center}
         .p-price{text-align:right;min-width:100px}
         .p-price .amount{font-size:1.3rem;font-weight:800;color:#E84A0C;display:block}
         .p-price .label{font-size:0.72rem;color:#888}
@@ -418,7 +418,7 @@
             <div class="p-price"><span class="amount">$19.990</span><span class="label">Tarifa Total</span></div>
         </div>
         <div class="pricing-row">
-            <div><p class="p-name">Aventura</p><p class="p-desc">Travesías tipo Sierra de Ramón.</p></div>
+            <div><p class="p-name">Aventura</p><p class="p-desc">Travesías tipo Torres del Paine.</p></div>
             <div class="p-days">3 días</div>
             <div class="p-price"><span class="amount">$26.990</span><span class="label">Tarifa Total</span></div>
         </div>
@@ -721,6 +721,23 @@ function showTab(tab) {
 <!-- ===== CART DRAWER ===== -->
 <div id="cart-backdrop" onclick="closeCart()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1000;"></div>
 
+<!-- MODAL SIN STOCK -->
+<div id="modal-sin-stock" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:2000;align-items:center;justify-content:center;">
+    <div style="background:#fff;border-radius:16px;padding:2.5rem;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+        <div style="width:64px;height:64px;background:rgba(232,74,12,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+            <i class="fa-solid fa-calendar-xmark" style="color:#E84A0C;font-size:1.75rem;"></i>
+        </div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;color:#1E2B35;font-size:1.2rem;font-weight:700;margin-bottom:0.75rem">Sin disponibilidad para esas fechas</h3>
+        <p style="color:#666;font-size:0.88rem;line-height:1.6;margin-bottom:1.5rem">Lo sentimos, no contamos con equipos disponibles para el período seleccionado. Hemos registrado tu solicitud y te contactaremos si se libera un equipo.</p>
+        <div style="display:flex;flex-direction:column;gap:0.75rem">
+            <a href="https://wa.me/56935706918?text=Hola%20Safe2Go%2C%20quiero%20consultar%20disponibilidad%20para%20mis%20fechas." target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:0.85rem;background:#25D366;color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.9rem;">
+                <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+            </a>
+            <button onclick="document.getElementById('modal-sin-stock').style.display='none'" style="padding:0.75rem;border:1.5px solid #eee;background:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;color:#666;">Cerrar y cambiar fechas</button>
+        </div>
+    </div>
+</div>
+
 <div id="cart-drawer" style="display:none;position:fixed;top:0;right:0;width:420px;max-width:100vw;height:100vh;background:#fff;z-index:1001;box-shadow:-4px 0 32px rgba(0,0,0,0.15);overflow-y:auto;flex-direction:column;">
     <div style="padding:1.5rem;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#fff;z-index:10">
         <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:700;color:#1E2B35">Tu Reserva</h3>
@@ -729,78 +746,83 @@ function showTab(tab) {
 
     <div style="padding:1.5rem;flex:1">
         <!-- STEP INDICATORS -->
-        <div style="display:flex;gap:0;margin-bottom:1.5rem;border-bottom:2px solid #eee" id="step-indicators">
-            <div id="ind-1" style="padding:0.5rem 1rem;font-size:0.82rem;font-weight:700;color:#E84A0C;border-bottom:2px solid #E84A0C;margin-bottom:-2px">1. Fechas</div>
-            <div id="ind-2" style="padding:0.5rem 1rem;font-size:0.82rem;font-weight:500;color:#aaa;border-bottom:2px solid transparent;margin-bottom:-2px">2. Tus Datos</div>
-            <div id="ind-3" style="padding:0.5rem 1rem;font-size:0.82rem;font-weight:500;color:#aaa;border-bottom:2px solid transparent;margin-bottom:-2px">3. Pago</div>
+        <div style="display:flex;gap:0;margin-bottom:1.5rem;border-bottom:2px solid #eee">
+            <div id="ind-1" style="padding:0.5rem 1rem;font-size:0.82rem;font-weight:700;color:#E84A0C;border-bottom:2px solid #E84A0C;margin-bottom:-2px">1. Fechas y Datos</div>
+            <div id="ind-2" style="padding:0.5rem 1rem;font-size:0.82rem;font-weight:500;color:#aaa;border-bottom:2px solid transparent;margin-bottom:-2px">2. Pago</div>
         </div>
 
-        <!-- STEP 1: FECHAS -->
-        <div id="cart-step-1">
-            <div style="background:#f8f9fa;border-radius:10px;padding:1rem;margin-bottom:1rem">
-                <h4 style="font-size:0.92rem;font-weight:700;color:#1E2B35;margin-bottom:0.25rem">Kit Garmin inReach Mini 2 — Plug & Play</h4>
-                <p style="font-size:0.78rem;color:#666;line-height:1.5"><i class="fa-solid fa-satellite-dish" style="color:#E84A0C;margin-right:4px"></i>SOS Satelital Ilimitado · Check-ins Ilimitados · 10 SMS satelitales incluidos</p>
-            </div>
+        <form id="checkout-form">
+            <!-- PASO 1: FECHAS + DATOS UNIFICADOS -->
+            <div id="cart-step-1">
+                <div style="background:#f8f9fa;border-radius:10px;padding:1rem;margin-bottom:1rem">
+                    <h4 style="font-size:0.92rem;font-weight:700;color:#1E2B35;margin-bottom:0.25rem">Kit Garmin inReach Mini 2 — Plug & Play</h4>
+                    <p style="font-size:0.78rem;color:#666;line-height:1.5"><i class="fa-solid fa-satellite-dish" style="color:#E84A0C;margin-right:4px"></i>SOS Satelital Ilimitado · Check-ins Ilimitados · 10 SMS satelitales incluidos</p>
+                </div>
 
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem">
-                <div>
-                    <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">Fecha de retiro *</label>
-                    <input type="date" id="cart-start" oninput="calcPrice()" style="width:100%;padding:0.6rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
-                </div>
-                <div>
-                    <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">Fecha de devolución *</label>
-                    <input type="date" id="cart-end" oninput="calcPrice()" style="width:100%;padding:0.6rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
-                </div>
-            </div>
-
-            <!-- PRICE SUMMARY -->
-            <div id="price-summary" style="display:none;background:#f8f9fa;border-radius:10px;padding:1rem;margin-bottom:1rem">
-                <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem">
-                    <span style="font-size:0.85rem;color:#666">Subtotal arriendo (<span id="summary-days">0</span> días)</span>
-                    <span style="font-size:0.85rem;font-weight:700;color:#1E2B35" id="summary-subtotal">$0</span>
-                </div>
-                <div style="border-top:1px dashed #ddd;margin:0.5rem 0;padding-top:0.5rem;display:flex;justify-content:space-between">
-                    <span style="font-size:0.95rem;font-weight:700;color:#1E2B35">A pagar hoy</span>
-                    <span style="font-size:1.1rem;font-weight:800;color:#E84A0C" id="summary-total">$0</span>
-                </div>
-                <div style="background:rgba(232,74,12,0.06);border:1px solid rgba(232,74,12,0.15);border-radius:8px;padding:0.75rem;margin-top:0.5rem">
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
-                        <span style="font-size:0.78rem;font-weight:600;color:#E84A0C"><i class="fa-solid fa-shield-halved"></i> Garantía reembolsable</span>
-                        <span style="font-size:0.82rem;font-weight:700;color:#E84A0C">$100.000</span>
-                    </div>
-                    <p style="font-size:0.72rem;color:#b85a1a;line-height:1.45;margin:0">Recibirás el link de pago de la garantía por correo electrónico una vez confirmado el pago del arriendo.</p>
-                </div>
-                <div id="tramo-badge" style="margin-top:0.5rem;text-align:center">
-                    <span style="background:#1E2B35;color:#fff;font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:4px;letter-spacing:0.5px"></span>
-                </div>
-            </div>
-
-            <button onclick="goStep(2)" id="btn-step1" disabled style="width:100%;padding:0.8rem;background:#ccc;color:#fff;border:none;border-radius:8px;font-size:0.92rem;font-weight:700;cursor:not-allowed;font-family:'Space Grotesk',sans-serif">Continuar <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-
-        <!-- STEP 2: DATOS -->
-        <div id="cart-step-2" style="display:none">
-            <div style="display:flex;flex-direction:column;gap:0.75rem">
-                <div>
-                    <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">Nombre completo *</label>
-                    <input type="text" id="inp-nombre" placeholder="Nombre y apellido" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
-                </div>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem">
+                <!-- FECHAS -->
+                <p style="font-size:0.8rem;font-weight:700;color:#1E2B35;margin-bottom:0.5rem;letter-spacing:0.5px">📅 FECHAS</p>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem">
                     <div>
-                        <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">Email *</label>
-                        <input type="email" id="inp-email" placeholder="correo@ejemplo.com" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
+                        <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">Fecha de retiro *</label>
+                        <input type="date" id="cart-start" oninput="calcPrice()" style="width:100%;padding:0.6rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
                     </div>
                     <div>
-                        <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">RUT o Pasaporte *</label>
-                        <input type="text" id="inp-rut" placeholder="12.345.678-9" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
+                        <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">Fecha de devolución *</label>
+                        <input type="date" id="cart-end" oninput="calcPrice()" style="width:100%;padding:0.6rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
                     </div>
                 </div>
-                <div>
-                    <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">WhatsApp *</label>
-                    <input type="tel" id="inp-tel" placeholder="+56 9 1234 5678" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
+
+                <!-- RESUMEN PRECIO -->
+                <div id="price-summary" style="display:none;background:#f8f9fa;border-radius:10px;padding:1rem;margin-bottom:1rem">
+                    <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem">
+                        <span style="font-size:0.85rem;color:#666">Subtotal arriendo (<span id="summary-days">0</span> días)</span>
+                        <span style="font-size:0.85rem;font-weight:700;color:#1E2B35" id="summary-subtotal">$0</span>
+                    </div>
+                    <div style="border-top:1px dashed #ddd;margin:0.5rem 0;padding-top:0.5rem;display:flex;justify-content:space-between">
+                        <span style="font-size:0.95rem;font-weight:700;color:#1E2B35">A pagar hoy</span>
+                        <span style="font-size:1.1rem;font-weight:800;color:#E84A0C" id="summary-total">$0</span>
+                    </div>
+                    <div style="background:rgba(232,74,12,0.06);border:1px solid rgba(232,74,12,0.15);border-radius:8px;padding:0.75rem;margin-top:0.5rem">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
+                            <span style="font-size:0.78rem;font-weight:600;color:#E84A0C"><i class="fa-solid fa-shield-halved"></i> Garantía reembolsable</span>
+                            <span style="font-size:0.82rem;font-weight:700;color:#E84A0C">$100.000</span>
+                        </div>
+                        <p style="font-size:0.72rem;color:#b85a1a;line-height:1.45;margin:0">Recibirás el link de pago de la garantía por correo electrónico una vez confirmado el pago del arriendo.</p>
+                    </div>
+                    <div id="tramo-badge" style="margin-top:0.5rem;text-align:center">
+                        <span style="background:#1E2B35;color:#fff;font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:4px;letter-spacing:0.5px"></span>
+                    </div>
                 </div>
 
-                <div>
+                <!-- SEPARADOR -->
+                <div style="border-top:1px solid #eee;margin:1rem 0;padding-top:1rem">
+                    <p style="font-size:0.8rem;font-weight:700;color:#1E2B35;margin-bottom:0.75rem;letter-spacing:0.5px">👤 TUS DATOS</p>
+                </div>
+
+                <!-- DATOS PERSONALES -->
+                <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1rem">
+                    <div>
+                        <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">Nombre y apellido *</label>
+                        <input type="text" id="inp-nombre" placeholder="Nombre y apellido" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
+                    </div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem">
+                        <div>
+                            <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">Email *</label>
+                            <input type="email" id="inp-email" placeholder="correo@ejemplo.com" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
+                        </div>
+                        <div>
+                            <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">RUT o Pasaporte *</label>
+                            <input type="text" id="inp-rut" placeholder="12.345.678-9" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
+                        </div>
+                    </div>
+                    <div>
+                        <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">WhatsApp *</label>
+                        <input type="tel" id="inp-tel" placeholder="+56 9 1234 5678" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
+                    </div>
+                </div>
+
+                <!-- MODALIDAD DE ENTREGA -->
+                <div style="margin-bottom:1rem">
                     <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:8px"><i class="fa-solid fa-box-open" style="margin-right:4px"></i>Modalidad de entrega *</label>
                     <div style="display:flex;flex-direction:column;gap:0.5rem">
                         <label style="display:flex;align-items:center;gap:10px;padding:0.75rem;border:1.5px solid #eee;border-radius:8px;cursor:pointer" id="opt-oficina">
@@ -826,7 +848,7 @@ function showTab(tab) {
                         </label>
                     </div>
 
-                    <!-- SELECTOR DE REGIÓN (aparece al elegir BX) -->
+                    <!-- SELECTOR DE REGIÓN -->
                     <div id="region-selector" style="display:none;margin-top:0.75rem">
                         <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:6px">Selecciona tu región *</label>
                         <select id="select-region" onchange="calcDespacho()" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif;background:#fff;color:#1E2B35">
@@ -854,8 +876,6 @@ function showTab(tab) {
                                 <option value="Extremo">Magallanes</option>
                             </optgroup>
                         </select>
-
-                        <!-- RESULTADO DESPACHO -->
                         <div id="despacho-result" style="display:none;margin-top:0.6rem;background:#f0f9f4;border:1px solid #9FE1CB;border-radius:8px;padding:0.75rem">
                             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
                                 <span style="font-size:0.78rem;color:#085041;font-weight:600" id="despacho-label">Costo de despacho</span>
@@ -863,211 +883,81 @@ function showTab(tab) {
                             </div>
                             <p style="font-size:0.72rem;color:#0F6E56;margin:0" id="despacho-detalle"></p>
                         </div>
-                    </div>
-
-                    <!-- RESUMEN TOTAL CON DESPACHO -->
-                    <div id="total-con-despacho" style="display:none;margin-top:0.75rem;background:#1E2B35;border-radius:10px;padding:0.85rem">
-                        <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-                            <span style="font-size:0.78rem;color:rgba(255,255,255,0.6)">Arriendo</span>
-                            <span style="font-size:0.82rem;color:#fff;font-weight:600" id="total-arriendo-line">$0</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;margin-bottom:8px">
-                            <span style="font-size:0.78rem;color:rgba(255,255,255,0.6)">Despacho Blue Express</span>
-                            <span style="font-size:0.82rem;color:#fff;font-weight:600" id="total-despacho-line">$0</span>
-                        </div>
-                        <div style="border-top:1px solid rgba(255,255,255,0.15);padding-top:8px;display:flex;justify-content:space-between">
-                            <span style="font-size:0.88rem;font-weight:700;color:#fff">Total a pagar</span>
-                            <span style="font-size:1.1rem;font-weight:800;color:#E84A0C" id="total-final-line">$0</span>
+                        <div id="total-con-despacho" style="display:none;margin-top:0.75rem;background:#1E2B35;border-radius:10px;padding:0.85rem">
+                            <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+                                <span style="font-size:0.78rem;color:rgba(255,255,255,0.6)">Arriendo</span>
+                                <span style="font-size:0.82rem;color:#fff;font-weight:600" id="total-arriendo-line">$0</span>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+                                <span style="font-size:0.78rem;color:rgba(255,255,255,0.6)">Despacho Blue Express</span>
+                                <span style="font-size:0.82rem;color:#fff;font-weight:600" id="total-despacho-line">$0</span>
+                            </div>
+                            <div style="border-top:1px solid rgba(255,255,255,0.15);padding-top:8px;display:flex;justify-content:space-between">
+                                <span style="font-size:0.88rem;font-weight:700;color:#fff">Total a pagar</span>
+                                <span style="font-size:1.1rem;font-weight:800;color:#E84A0C" id="total-final-line">$0</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div style="display:flex;gap:0.75rem;margin-top:1.25rem">
-                <button onclick="goStep(1)" style="padding:0.75rem 1rem;border:1.5px solid #1E2B35;background:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;color:#1E2B35;font-family:'Inter',sans-serif">Atrás</button>
-                <button onclick="goStep(3)" style="flex:1;padding:0.75rem;background:#E84A0C;color:#fff;border:none;border-radius:8px;font-size:0.92rem;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif">Ir a Pagar <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-        </div>
-
-        <!-- STEP 3: PAGO -->
-        <div id="cart-step-3" style="display:none">
-            <div style="background:#f8f9fa;border-radius:12px;padding:1.25rem;text-align:center;margin-bottom:1.25rem">
-                <p style="font-size:0.85rem;color:#666;margin-bottom:0.25rem">A pagar hoy</p>
-                <p style="font-size:2rem;font-weight:800;color:#E84A0C;font-family:'Space Grotesk',sans-serif" id="final-total">$0</p>
-                <div style="display:inline-block;background:rgba(232,74,12,0.1);padding:4px 14px;border-radius:20px;margin-top:0.5rem">
-                    <p style="font-size:0.75rem;font-weight:600;color:#E84A0C"><i class="fa-solid fa-shield-halved"></i> Garantía reembolsable de $100.000</p>
+                <!-- CONVENIO -->
+                <div style="background:#f8f9fa;border-radius:8px;padding:0.85rem;margin-bottom:1rem">
+                    <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer">
+                        <input type="checkbox" id="convenio-check" style="margin-top:3px" onchange="toggleConvenio()">
+                        <div>
+                            <span style="font-size:0.82rem;font-weight:600;color:#1E2B35">Soy socio/a de un club u organismo con convenio Safe2Go</span>
+                            <p style="font-size:0.75rem;color:#888;margin:2px 0 0">En caso de estar en nómina, la garantía no será requerida.</p>
+                        </div>
+                    </label>
+                    <div id="convenio-fields" style="display:none;margin-top:0.75rem;display:none;flex-direction:column;gap:0.5rem">
+                        <div>
+                            <label style="font-size:0.75rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:3px">Club u organismo *</label>
+                            <input type="text" id="inp-club" placeholder="Ej: RAMUCH, Club Alemán Andino..." style="width:100%;padding:0.6rem;border:1.5px solid #eee;border-radius:8px;font-size:0.82rem;font-family:'Inter',sans-serif">
+                        </div>
+                        <div>
+                            <label style="font-size:0.75rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:3px">Número de socio *</label>
+                            <input type="text" id="inp-socio" placeholder="Número de socio o RUT" style="width:100%;padding:0.6rem;border:1.5px solid #eee;border-radius:8px;font-size:0.82rem;font-family:'Inter',sans-serif">
+                        </div>
+                    </div>
                 </div>
-                <p style="font-size:0.72rem;color:#888;margin-top:0.4rem;line-height:1.5">Recibirás el link de pago de la garantía por correo electrónico una vez confirmado el pago del arriendo.</p>
-                <p style="font-size:0.75rem;color:#aaa;margin-top:0.5rem"><i class="fa-solid fa-shield-check"></i> Conexión bancaria 100% encriptada</p>
+
+                <button onclick="goStep(2)" id="btn-step1" disabled style="width:100%;padding:0.8rem;background:#ccc;color:#fff;border:none;border-radius:8px;font-size:0.92rem;font-weight:700;cursor:not-allowed;font-family:'Space Grotesk',sans-serif">Ir a Pagar <i class="fa-solid fa-arrow-right"></i></button>
             </div>
 
-            <div style="background:#f8f9fa;border-radius:8px;padding:0.85rem;margin-bottom:1rem">
-                <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer">
-                    <input type="checkbox" id="legal-check" style="margin-top:3px" onchange="togglePay()">
-                    <span style="font-size:0.78rem;color:#666;line-height:1.6">He leído y acepto los <a href="https://drive.google.com/file/d/1OJlIHudFYjwCb7YuSRJfyWXsMJH6CBkp/view?usp=sharing" target="_blank" style="color:#E84A0C;font-weight:700;text-decoration:underline">Términos y Condiciones</a> de Safe2Go, que incluyen: <strong>política de garantía reembolsable</strong> ($100.000 retenida en tarjeta y liberada automáticamente al devolver el equipo en buenas condiciones), <strong>cobertura de excedentes de mensajería satelital</strong> ($600 por mensaje sobre los 10 incluidos), <strong>responsabilidad por pérdida o robo</strong> del equipo (valor de reposición $450.000), <strong>condiciones de devolución</strong> (plazo, estado del equipo y etiqueta prepagada Blue Express) y <strong>política de cancelación y modificación</strong> de reservas.</span>
-                </label>
+            <!-- PASO 2: PAGO -->
+            <div id="cart-step-2" style="display:none">
+                <div style="background:#f8f9fa;border-radius:12px;padding:1.25rem;text-align:center;margin-bottom:1.25rem">
+                    <p style="font-size:0.85rem;color:#666;margin-bottom:0.25rem">A pagar hoy</p>
+                    <p style="font-size:2rem;font-weight:800;color:#E84A0C;font-family:'Space Grotesk',sans-serif" id="final-total">$0</p>
+                    <div style="display:inline-block;background:rgba(232,74,12,0.1);padding:4px 14px;border-radius:20px;margin-top:0.5rem">
+                        <p style="font-size:0.75rem;font-weight:600;color:#E84A0C"><i class="fa-solid fa-shield-halved"></i> Garantía reembolsable de $100.000</p>
+                    </div>
+                    <p style="font-size:0.72rem;color:#888;margin-top:0.4rem;line-height:1.5">Recibirás el link de pago de la garantía por correo electrónico una vez confirmado el pago del arriendo.</p>
+                    <p style="font-size:0.75rem;color:#aaa;margin-top:0.5rem"><i class="fa-solid fa-shield-check"></i> Conexión bancaria 100% encriptada</p>
+                </div>
+
+                <div style="background:#f8f9fa;border-radius:8px;padding:0.85rem;margin-bottom:1rem">
+                    <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer">
+                        <input type="checkbox" id="legal-check" style="margin-top:3px" onchange="togglePay()">
+                        <span style="font-size:0.78rem;color:#666;line-height:1.6">He leído y acepto los <a href="https://drive.google.com/file/d/1OJlIHudFYjwCb7YuSRJfyWXsMJH6CBkp/view?usp=sharing" target="_blank" style="color:#E84A0C;font-weight:700;text-decoration:underline">Términos y Condiciones</a> de Safe2Go, que incluyen: <strong>política de garantía reembolsable</strong> ($100.000 retenida en tarjeta y liberada automáticamente al devolver el equipo en buenas condiciones), <strong>cobertura de excedentes de mensajería satelital</strong> ($600 por mensaje sobre los 10 incluidos), <strong>responsabilidad por pérdida o robo</strong> del equipo (valor de reposición $450.000), <strong>condiciones de devolución</strong> (plazo, estado del equipo y etiqueta prepagada Blue Express) y <strong>política de cancelación y modificación</strong> de reservas.</span>
+                    </label>
+                </div>
+
+                <p style="font-size:0.82rem;text-align:center;color:#888;margin-bottom:0.75rem">Selecciona tu método de pago</p>
+
+                <button id="btn-webpay" disabled onclick="alert('Webpay estará disponible próximamente.')" style="width:100%;padding:0.85rem;background:#ccc;color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:700;cursor:not-allowed;margin-bottom:0.6rem;font-family:'Space Grotesk',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px">
+                    Pagar con Webpay Plus
+                    <img src="https://tbk.azureedge.net/img/wpp_p_ch-45.png" alt="Webpay" style="height:18px">
+                </button>
+
+                <button id="btn-mp" disabled onclick="alert('MercadoPago estará disponible próximamente.')" style="width:100%;padding:0.85rem;background:#ccc;color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:700;cursor:not-allowed;margin-bottom:1rem;font-family:'Space Grotesk',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px">
+                    <i class="fa-solid fa-handshake"></i> Pagar con MercadoPago
+                </button>
+
+                <button onclick="goStep(1)" style="width:100%;padding:0.7rem;border:1.5px solid #eee;background:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;color:#666;font-family:'Inter',sans-serif">Volver</button>
             </div>
-
-            <p style="font-size:0.82rem;text-align:center;color:#888;margin-bottom:0.75rem">Selecciona tu método de pago</p>
-
-            <button id="btn-webpay" disabled onclick="alert('Webpay estará disponible próximamente. Mientras tanto puedes contactarnos para coordinar tu reserva.')" style="width:100%;padding:0.85rem;background:#ccc;color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:700;cursor:not-allowed;margin-bottom:0.6rem;font-family:'Space Grotesk',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px">
-                Pagar con Webpay Plus
-                <img src="https://tbk.azureedge.net/img/wpp_p_ch-45.png" alt="Webpay" style="height:18px">
-            </button>
-
-            <button id="btn-mp" disabled onclick="alert('MercadoPago estará disponible próximamente.')" style="width:100%;padding:0.85rem;background:#ccc;color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:700;cursor:not-allowed;margin-bottom:1rem;font-family:'Space Grotesk',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px">
-                <i class="fa-solid fa-handshake"></i> Pagar con MercadoPago
-            </button>
-
-            <div style="margin-top:0.5rem">
-                <button onclick="goStep(2)" style="width:100%;padding:0.7rem;border:1.5px solid #eee;background:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;color:#666;font-family:'Inter',sans-serif">Volver a datos</button>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 
-<script>
-var TARIFAS = {
-    RM:      { domicilio: 6990, puntoBX: 5990, oficina: 0 },
-    Centro:  { domicilio: 9990, puntoBX: 8990, oficina: 0 },
-    Extremo: { domicilio: 11990, puntoBX: 10990, oficina: 0 }
-};
-
-var currentStep = 1;
-var currentTotal = 0;
-
-function openCart() {
-    document.getElementById('cart-drawer').style.display = 'flex';
-    document.getElementById('cart-backdrop').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-    // Set min date to today
-    var today = new Date().toISOString().split('T')[0];
-    document.getElementById('cart-start').min = today;
-    document.getElementById('cart-end').min = today;
-}
-
-function closeCart() {
-    document.getElementById('cart-drawer').style.display = 'none';
-    document.getElementById('cart-backdrop').style.display = 'none';
-    document.body.style.overflow = '';
-}
-
-function goStep(n) {
-    for (var i = 1; i <= 3; i++) {
-        document.getElementById('cart-step-' + i).style.display = i === n ? 'block' : 'none';
-        var ind = document.getElementById('ind-' + i);
-        ind.style.color = i === n ? '#E84A0C' : '#aaa';
-        ind.style.borderBottomColor = i === n ? '#E84A0C' : 'transparent';
-        ind.style.fontWeight = i === n ? '700' : '500';
-    }
-    if (n === 3) {
-        var total = currentTotal + currentDespacho;
-        document.getElementById('final-total').textContent = formatCLP(total);
-    }
-    currentStep = n;
-    document.getElementById('cart-drawer').scrollTop = 0;
-}
-
-function calcPrice() {
-    var start = document.getElementById('cart-start').value;
-    var end = document.getElementById('cart-end').value;
-    if (!start || !end) return;
-
-    var d1 = new Date(start), d2 = new Date(end);
-    if (d2 <= d1) { document.getElementById('cart-end').value = ''; return; }
-    // Set end min = day after start
-    document.getElementById('cart-end').min = new Date(d1.getTime() + 86400000).toISOString().split('T')[0];
-
-    var days = Math.round((d2 - d1) / 86400000);
-    var price, tramo, tramoLabel;
-
-    if (days === 1)      { price = 12990; tramo = 'T1'; tramoLabel = 'T1 — Express'; }
-    else if (days === 2) { price = 19990; tramo = 'T2'; tramoLabel = 'T2 — Escapada'; }
-    else if (days === 3) { price = 26990; tramo = 'T3'; tramoLabel = 'T3 — Aventura'; }
-    else if (days <= 10) { price = days * 6990; tramo = 'T4'; tramoLabel = 'T4 — Aventura Media ($6.990/día)'; }
-    else                 { price = days * 5990; tramo = 'T5'; tramoLabel = 'T5 — Expedición Extrema ($5.990/día)'; }
-
-    currentTotal = price;
-    document.getElementById('summary-days').textContent = days;
-    document.getElementById('summary-subtotal').textContent = formatCLP(price);
-    document.getElementById('summary-total').textContent = formatCLP(price);
-    document.getElementById('tramo-badge').querySelector('span').textContent = tramoLabel;
-    document.getElementById('price-summary').style.display = 'block';
-
-    var btn = document.getElementById('btn-step1');
-    btn.disabled = false;
-    btn.style.background = '#E84A0C';
-    btn.style.cursor = 'pointer';
-}
-
-var TARIFAS_BX = {
-    RM:      { domicilio: 6990, puntoBX: 5990 },
-    Centro:  { domicilio: 9990, puntoBX: 8990 },
-    Extremo: { domicilio: 11990, puntoBX: 10990 }
-};
-var currentDespacho = 0;
-
-function selectEntrega(radio) {
-    ['oficina','domicilio','puntoBX'].forEach(function(v) {
-        var el = document.getElementById('opt-' + v);
-        if (el) el.style.borderColor = v === radio.value ? '#E84A0C' : '#eee';
-    });
-    var showRegion = (radio.value === 'domicilio' || radio.value === 'puntoBX');
-    document.getElementById('region-selector').style.display = showRegion ? 'block' : 'none';
-    document.getElementById('total-con-despacho').style.display = 'none';
-    document.getElementById('despacho-result').style.display = 'none';
-    if (!showRegion) {
-        currentDespacho = 0;
-        document.getElementById('select-region').value = '';
-    }
-}
-
-function calcDespacho() {
-    var zona = document.getElementById('select-region').value;
-    if (!zona) return;
-    var modalidad = document.querySelector('input[name="entrega"]:checked').value;
-    var costo = TARIFAS_BX[zona][modalidad];
-    currentDespacho = costo;
-
-    var zonaLabel = zona === 'RM' ? 'Región Metropolitana' : zona;
-    var modalidadLabel = modalidad === 'domicilio' ? 'domicilio' : 'punto Blue Express';
-    document.getElementById('despacho-label').textContent = 'Despacho ' + modalidadLabel + ' — Zona ' + zonaLabel;
-    document.getElementById('despacho-price').textContent = formatCLP(costo);
-    document.getElementById('despacho-detalle').textContent = 'Incluye envío de ida + etiqueta de retorno prepagada';
-    document.getElementById('despacho-result').style.display = 'block';
-
-    var totalConDespacho = currentTotal + costo;
-    document.getElementById('total-arriendo-line').textContent = formatCLP(currentTotal);
-    document.getElementById('total-despacho-line').textContent = formatCLP(costo);
-    document.getElementById('total-final-line').textContent = formatCLP(totalConDespacho);
-    document.getElementById('total-con-despacho').style.display = 'block';
-}
-
-function togglePay() {
-    var checked = document.getElementById('legal-check').checked;
-    var btnWP = document.getElementById('btn-webpay');
-    var btnMP = document.getElementById('btn-mp');
-    btnWP.disabled = !checked;
-    btnWP.style.background = checked ? '#0070BA' : '#ccc';
-    btnWP.style.cursor = checked ? 'pointer' : 'not-allowed';
-    btnMP.disabled = !checked;
-    btnMP.style.background = checked ? '#009EE3' : '#ccc';
-    btnMP.style.cursor = checked ? 'pointer' : 'not-allowed';
-}
-
-function formatCLP(n) {
-    return '$' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-}
-</script>
-
-<!-- MOBILE STICKY BAR -->
-<div class="mobile-sticky">
-    <div class="mobile-sticky-price">
-        <span>Desde</span>
-        <strong>$12.990 <span style="font-size:0.75rem;font-weight:400;opacity:0.7">/día</span></strong>
-    </div>
-    <button class="btn-primary" onclick="openCart()" style="padding:0.6rem 1.25rem;font-size:0.85rem;">Reservar Kit</button>
-</div>
-
-</body>
-</html>
+>
