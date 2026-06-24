@@ -960,4 +960,132 @@ function showTab(tab) {
     </div>
 </div>
 
->
+<script>
+var TARIFAS_BX = {
+    RM:      { domicilio: 6990, puntoBX: 5990 },
+    Centro:  { domicilio: 9990, puntoBX: 8990 },
+    Extremo: { domicilio: 11990, puntoBX: 10990 }
+};
+var currentTotal = 0;
+var currentDespacho = 0;
+var currentStep = 1;
+
+function openCart() {
+    document.getElementById('cart-drawer').style.display = 'flex';
+    document.getElementById('cart-backdrop').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementById('cart-start').min = today;
+    document.getElementById('cart-end').min = today;
+}
+
+function closeCart() {
+    document.getElementById('cart-drawer').style.display = 'none';
+    document.getElementById('cart-backdrop').style.display = 'none';
+    document.body.style.overflow = '';
+}
+
+function goStep(n) {
+    for (var i = 1; i <= 2; i++) {
+        var step = document.getElementById('cart-step-' + i);
+        if (step) step.style.display = i === n ? 'block' : 'none';
+        var ind = document.getElementById('ind-' + i);
+        if (ind) {
+            ind.style.color = i === n ? '#E84A0C' : '#aaa';
+            ind.style.borderBottomColor = i === n ? '#E84A0C' : 'transparent';
+            ind.style.fontWeight = i === n ? '700' : '500';
+        }
+    }
+    if (n === 2) {
+        var total = currentTotal + currentDespacho;
+        document.getElementById('final-total').textContent = formatCLP(total);
+    }
+    currentStep = n;
+    document.getElementById('cart-drawer').scrollTop = 0;
+}
+
+function calcPrice() {
+    var start = document.getElementById('cart-start').value;
+    var end = document.getElementById('cart-end').value;
+    if (!start || !end) return;
+    var d1 = new Date(start), d2 = new Date(end);
+    if (d2 <= d1) { document.getElementById('cart-end').value = ''; return; }
+    document.getElementById('cart-end').min = new Date(d1.getTime() + 86400000).toISOString().split('T')[0];
+    var days = Math.round((d2 - d1) / 86400000);
+    var price, tramoLabel;
+    if (days === 1)      { price = 12990; tramoLabel = 'T1 — Express'; }
+    else if (days === 2) { price = 19990; tramoLabel = 'T2 — Escapada'; }
+    else if (days === 3) { price = 26990; tramoLabel = 'T3 — Aventura'; }
+    else if (days <= 10) { price = days * 6990; tramoLabel = 'T4 — Aventura Media ($6.990/día)'; }
+    else                 { price = days * 5990; tramoLabel = 'T5 — Expedición Extrema ($5.990/día)'; }
+    currentTotal = price;
+    currentDespacho = 0;
+    document.getElementById('summary-days').textContent = days;
+    document.getElementById('summary-subtotal').textContent = formatCLP(price);
+    document.getElementById('summary-total').textContent = formatCLP(price);
+    document.getElementById('tramo-badge').querySelector('span').textContent = tramoLabel;
+    document.getElementById('price-summary').style.display = 'block';
+    var btn = document.getElementById('btn-step1');
+    btn.disabled = false;
+    btn.style.background = '#E84A0C';
+    btn.style.cursor = 'pointer';
+}
+
+function selectEntrega(radio) {
+    ['oficina','domicilio','puntoBX'].forEach(function(v) {
+        var el = document.getElementById('opt-' + v);
+        if (el) el.style.borderColor = v === radio.value ? '#E84A0C' : '#eee';
+    });
+    var showRegion = (radio.value === 'domicilio' || radio.value === 'puntoBX');
+    document.getElementById('region-selector').style.display = showRegion ? 'block' : 'none';
+    document.getElementById('total-con-despacho').style.display = 'none';
+    document.getElementById('despacho-result').style.display = 'none';
+    if (!showRegion) {
+        currentDespacho = 0;
+        document.getElementById('select-region').value = '';
+    }
+}
+
+function calcDespacho() {
+    var zona = document.getElementById('select-region').value;
+    if (!zona) return;
+    var modalidad = document.querySelector('input[name="entrega"]:checked').value;
+    var costo = TARIFAS_BX[zona][modalidad];
+    currentDespacho = costo;
+    var zonaLabel = zona === 'RM' ? 'Región Metropolitana' : zona;
+    var modalidadLabel = modalidad === 'domicilio' ? 'domicilio' : 'punto Blue Express';
+    document.getElementById('despacho-label').textContent = 'Despacho ' + modalidadLabel + ' — Zona ' + zonaLabel;
+    document.getElementById('despacho-price').textContent = formatCLP(costo);
+    document.getElementById('despacho-detalle').textContent = 'Incluye envío de ida + etiqueta de retorno prepagada';
+    document.getElementById('despacho-result').style.display = 'block';
+    var totalConDespacho = currentTotal + costo;
+    document.getElementById('total-arriendo-line').textContent = formatCLP(currentTotal);
+    document.getElementById('total-despacho-line').textContent = formatCLP(costo);
+    document.getElementById('total-final-line').textContent = formatCLP(totalConDespacho);
+    document.getElementById('total-con-despacho').style.display = 'block';
+}
+
+function toggleConvenio() {
+    var checked = document.getElementById('convenio-check').checked;
+    var fields = document.getElementById('convenio-fields');
+    fields.style.display = checked ? 'flex' : 'none';
+}
+
+function togglePay() {
+    var checked = document.getElementById('legal-check').checked;
+    var btnWP = document.getElementById('btn-webpay');
+    var btnMP = document.getElementById('btn-mp');
+    btnWP.disabled = !checked;
+    btnWP.style.background = checked ? '#0070BA' : '#ccc';
+    btnWP.style.cursor = checked ? 'pointer' : 'not-allowed';
+    btnMP.disabled = !checked;
+    btnMP.style.background = checked ? '#009EE3' : '#ccc';
+    btnMP.style.cursor = checked ? 'pointer' : 'not-allowed';
+}
+
+function formatCLP(n) {
+    return '$' + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+}
+</script>
+</body>
+</html>
