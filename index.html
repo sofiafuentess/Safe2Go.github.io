@@ -466,9 +466,21 @@ function showTab(tab) {
 <section class="testimonial-section">
     <img src="fotos/15b4af00-1b24-49fb-a89f-592050962825.png" alt="Cordada en cumbre al amanecer" class="testimonial-img">
     <div class="testimonial-content">
-        <i class="fa-solid fa-satellite-dish" style="color:#E84A0C;font-size:1.05rem;margin-bottom:0.5rem"></i>
-        <p style="font-size:1.05rem;font-weight:600;line-height:1.35;font-family:'Space Grotesk',sans-serif;margin-bottom:0.4rem">"Cumbre lograda. Todo el equipo bien. Descendiendo ahora."</p>
-        <p style="opacity:0.6;font-size:0.78rem">V&#237;a sat&#233;lite Iridium &middot; hace 4 min &middot; Cordada Andes Sur</p>
+        <div style="margin-bottom:1.5rem">
+            <i class="fa-solid fa-satellite-dish" style="color:#E84A0C;font-size:1.05rem;margin-bottom:0.5rem;display:block"></i>
+            <p style="font-size:1.05rem;font-weight:600;line-height:1.35;font-family:'Space Grotesk',sans-serif;margin-bottom:0.4rem">"Mi familia segu&#237;a mi ruta en tiempo real desde casa. Eso no tiene precio."</p>
+            <p style="opacity:0.6;font-size:0.78rem">Rodrigo M. &middot; Traves&#237;a Sierra de Ram&#243;n &middot; 3 d&#237;as</p>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.12);padding-top:1.5rem;margin-bottom:1.5rem">
+            <i class="fa-solid fa-box-open" style="color:#E84A0C;font-size:1.05rem;margin-bottom:0.5rem;display:block"></i>
+            <p style="font-size:1.05rem;font-weight:600;line-height:1.35;font-family:'Space Grotesk',sans-serif;margin-bottom:0.4rem">"El equipo lleg&#243; configurado y listo. Lo encend&#237; en la carretera y ya estaba trackeando."</p>
+            <p style="opacity:0.6;font-size:0.78rem">Catalina V. &middot; Volc&#225;n Villarrica &middot; 2 d&#237;as</p>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.12);padding-top:1.5rem">
+            <i class="fa-solid fa-person-hiking" style="color:#E84A0C;font-size:1.05rem;margin-bottom:0.5rem;display:block"></i>
+            <p style="font-size:1.05rem;font-weight:600;line-height:1.35;font-family:'Space Grotesk',sans-serif;margin-bottom:0.4rem">"Nunca hab&#237;a usado un GPS satelital. Lo encend&#237; y en dos minutos ya estaba enviando check-ins."</p>
+            <p style="opacity:0.6;font-size:0.78rem">Valentina R. &middot; Torres del Paine &middot; 8 d&#237;as</p>
+        </div>
     </div>
 </section>
 
@@ -515,7 +527,40 @@ function showTab(tab) {
             <div class="p-price"><span class="amount">$5.990</span><span class="label">/ por d&#237;a</span></div>
         </div>
     </div>
-    <p class="pricing-note">Los valores no incluyen garant&#237;a reembolsable de $100.000. Despacho v&#237;a Blue Express se cotiza en el checkout.</p>
+    <p class="pricing-note">Los valores no incluyen garant&#237;a reembolsable de $100.000.</p>
+
+    <!-- TABLA DESPACHO -->
+    <div style="max-width:720px;margin:1.5rem auto 0">
+        <p style="font-size:0.72rem;font-weight:700;letter-spacing:1.5px;color:#888;margin-bottom:0.75rem;text-align:center">DESPACHO VÍA BLUE EXPRESS &mdash; IDA Y VUELTA INCLUIDOS</p>
+        <div style="border:1.5px solid #eee;border-radius:12px;overflow:hidden;font-size:0.85rem">
+            <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;background:#f8f9fa">
+                <div style="padding:10px 16px;font-size:0.72rem;font-weight:700;color:#aaa;letter-spacing:0.5px">ZONA</div>
+                <div style="padding:10px 16px;font-size:0.72rem;font-weight:700;color:#aaa;letter-spacing:0.5px;text-align:center">DOMICILIO</div>
+                <div style="padding:10px 16px;font-size:0.72rem;font-weight:700;color:#aaa;letter-spacing:0.5px;text-align:center">PUNTO BX</div>
+                <div style="padding:10px 16px;font-size:0.72rem;font-weight:700;color:#aaa;letter-spacing:0.5px;text-align:center">RETIRO SANTIAGO</div>
+            </div>
+            <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;border-top:1px solid #f0f0f0">
+                <div style="padding:14px 16px"><p style="font-weight:600;color:#1E2B35;margin:0">Regi&#243;n Metropolitana</p></div>
+                <div style="padding:14px 16px;text-align:center;font-weight:700;color:#1E2B35">$6.990</div>
+                <div style="padding:14px 16px;text-align:center;font-weight:700;color:#1E2B35">$5.990</div>
+                <div style="padding:14px 16px;text-align:center"><span style="background:rgba(29,158,117,0.1);color:#0F6E56;font-size:0.75rem;font-weight:700;padding:3px 10px;border-radius:5px">Gratis</span></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;border-top:1px solid #f0f0f0">
+                <div style="padding:14px 16px"><p style="font-weight:600;color:#1E2B35;margin:0 0 2px">Centro</p><p style="font-size:0.75rem;color:#888;margin:0">Atacama → Los Lagos</p></div>
+                <div style="padding:14px 16px;text-align:center;font-weight:700;color:#1E2B35">$9.990</div>
+                <div style="padding:14px 16px;text-align:center;font-weight:700;color:#1E2B35">$8.990</div>
+                <div style="padding:14px 16px;text-align:center;color:#ccc">—</div>
+            </div>
+            <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;border-top:1px solid #f0f0f0">
+                <div style="padding:14px 16px"><p style="font-weight:600;color:#1E2B35;margin:0 0 2px">Extremo</p><p style="font-size:0.75rem;color:#888;margin:0">Arica, Antofagasta, Ays&#233;n, Magallanes</p></div>
+                <div style="padding:14px 16px;text-align:center;font-weight:700;color:#1E2B35">$11.990</div>
+                <div style="padding:14px 16px;text-align:center;font-weight:700;color:#1E2B35">$10.990</div>
+                <div style="padding:14px 16px;text-align:center;color:#ccc">—</div>
+            </div>
+        </div>
+        <p style="font-size:0.75rem;color:#aaa;text-align:center;margin-top:0.75rem;line-height:1.5">El precio cubre el env&#237;o de ida <strong style="color:#888">y</strong> la etiqueta de retorno prepagada. Plazo estimado: RM y Centro 1–2 d&#237;as h&#225;biles &middot; Extremo 2–3 d&#237;as h&#225;biles.</p>
+    </div>
+
     <div style="text-align:center;margin-top:2rem">
         <button class="btn-primary" style="padding:0.75rem 2.5rem;font-size:0.95rem;" onclick="openCart()">CALCULAR TU ARRIENDO ONLINE</button>
     </div>
