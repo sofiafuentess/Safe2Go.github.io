@@ -73,10 +73,15 @@
         .features-device{background:rgba(255,255,255,0.06);border-radius:18px;height:260px;display:flex;align-items:center;justify-content:center;font-size:5rem;border:1px solid rgba(255,255,255,0.1)}
 
         /* FAQ */
-        .faq-container{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:0.75rem}
-        .faq-item{background:#fff;border-radius:12px;padding:1.25rem 1.5rem;border:1px solid #eee}
-        .faq-q{font-weight:700;font-size:0.92rem;color:#1E2B35;margin-bottom:0.5rem}
-        .faq-a{font-size:0.84rem;color:#666;line-height:1.6}
+        .faq-container{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:0.5rem}
+        .faq-item{background:#fff;border-radius:10px;border:1px solid #eee;overflow:hidden}
+        .faq-item[open]{border-color:#E84A0C}
+        .faq-q{font-weight:700;font-size:0.86rem;color:#1E2B35;padding:0.75rem 1.1rem;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;user-select:none;line-height:1.4}
+        .faq-q::-webkit-details-marker{display:none}
+        .faq-q::after{content:'\f078';font-family:'Font Awesome 6 Free';font-weight:900;font-size:0.7rem;color:#E84A0C;flex-shrink:0;transition:transform 0.25s ease}
+        .faq-item[open] .faq-q::after{transform:rotate(180deg)}
+        .faq-a{font-size:0.8rem;color:#666;line-height:1.5;padding:0 1.1rem 0.85rem;animation:faqFadeIn 0.2s ease}
+        @keyframes faqFadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
 
         /* CTA BAND */
         .cta-band{background:linear-gradient(135deg,#1E2B35,#2d3f4d);padding:4rem 3rem;text-align:center;color:#fff}
@@ -234,11 +239,8 @@
             .faq-container {
                 max-width: 100%;
             }
-            .faq-item {
-                padding: 1rem;
-            }
-            .faq-q { font-size: 0.85rem; }
-            .faq-a { font-size: 0.8rem; }
+            .faq-q { font-size: 0.82rem; padding: 0.7rem 0.9rem; }
+            .faq-a { font-size: 0.78rem; padding: 0 0.9rem 0.75rem; }
 
             /* CTA */
             .cta-band {
@@ -490,7 +492,7 @@
 <!-- 3 PASOS -->
 <section class="section-alt" id="como-funciona">
     <div class="steps-img-wrap">
-        <img src="fotos/pexels-jedrzej-koralewski-14125120-31348061.jpg" alt="Montanista subiendo con bastones en glaciar">
+        <img src="fotos/pexels-jedrzej-koralewski-14125120-31348061.jpg" alt="Montañista subiendo con bastones en glaciar">
         <div class="steps-img-caption"><p>EXPLORA CON RESPALDO SATELITAL</p></div>
     </div>
     <p class="section-title">TU AVENTURA EN 3 PASOS</p>
@@ -504,7 +506,7 @@
         <div class="step-card">
             <div class="step-icon"><i class="fa-solid fa-box-open"></i></div>
             <h3>RECIBE TU KIT</h3>
-            <p>Lo despacahamos configurado y cargado al 100%. Incluye etiqueta de retorno prepagada.</p>
+            <p>Blue Express lo despacha configurado y cargado al 100%. Incluye etiqueta de retorno prepagada.</p>
         </div>
         <div class="step-card">
             <div class="step-icon"><i class="fa-solid fa-person-hiking"></i></div>
@@ -529,7 +531,7 @@
             <div class="feat"><span class="feat-icon"><i class="fa-solid fa-people-arrows"></i></span><div><h4>Tranquilidad Familiar</h4><p>Seguimiento GPS en tiempo real.</p></div></div>
         </div>
     </div>
-    <img src="fotos/pexels-danny-kaas-2379641-9743928.jpg" alt="Jeep 4x4 cruzando rio en bosque de montana" class="features-device-img">
+    <img src="fotos/pexels-danny-kaas-2379641-9743928.jpg" alt="Jeep 4x4 cruzando río en bosque de montaña" class="features-device-img">
 </section>
 
 
@@ -724,25 +726,25 @@ function showTab(tab) {
 </section>
 
 <!-- FAQ -->
-<section class="section" id="faq">
+<section class="section" id="faq" style="padding-top:2.25rem;padding-bottom:2.25rem">
     <p class="section-title">PREGUNTAS FRECUENTES</p>
-    <div class="faq-container" style="margin-top:2rem">
-        <div class="faq-item">
-            <p class="faq-q">¿Tengo cobertura solo en Chile o en todo el mundo?</p>
+    <div class="faq-container" style="margin-top:1.25rem">
+        <details class="faq-item">
+            <summary class="faq-q">¿Tengo cobertura solo en Chile o en todo el mundo?</summary>
             <p class="faq-a">Cobertura verdaderamente global vía red Iridium, de polo a polo. Funciona igual en Atacama, la Cordillera, la Antártica o el Himalaya.</p>
-        </div>
-        <div class="faq-item">
-            <p class="faq-q">¿Cómo funciona el depósito de seguridad?</p>
+        </details>
+        <details class="faq-item">
+            <summary class="faq-q">¿Cómo funciona el depósito de seguridad?</summary>
             <p class="faq-a">Se retiene $100.000 en tu tarjeta al pagar. No es un cobro — es un hold. Se libera automáticamente en 3–5 días hábiles al devolver el equipo en buenas condiciones.</p>
-        </div>
-        <div class="faq-item">
-            <p class="faq-q">¿Qué pasa si tengo que usar el botón SOS?</p>
+        </details>
+        <details class="faq-item">
+            <summary class="faq-q">¿Qué pasa si tengo que usar el botón SOS?</summary>
             <p class="faq-a">Al presionar SOS te comunicarás con el Garmin Response Center (24/7), quienes coordinan con Socorro Andino, rescate o evacuación médica hasta tu ubicación exacta.</p>
-        </div>
-        <div class="faq-item">
-            <p class="faq-q">¿Es difícil de usar si nunca tuve un GPS satelital?</p>
+        </details>
+        <details class="faq-item">
+            <summary class="faq-q">¿Es difícil de usar si nunca tuve un GPS satelital?</summary>
             <p class="faq-a">Cero fricción. El equipo llega configurado y se enlaza por Bluetooth a tu celular para escribir mensajes como WhatsApp vía la app Garmin Explore.</p>
-        </div>
+        </details>
     </div>
 </section>
 
@@ -752,18 +754,18 @@ function showTab(tab) {
     <div class="testimonial-content">
         <i class="fa-solid fa-satellite-dish" style="color:#E84A0C;font-size:1.05rem;margin-bottom:0.5rem"></i>
         <p style="font-size:1.05rem;font-weight:600;line-height:1.35;font-family:'Space Grotesk',sans-serif;margin-bottom:0.4rem">"Cumbre lograda. Todo el equipo bien. Descendiendo ahora."</p>
-        <p style="opacity:0.6;font-size:0.78rem">Via satelite Iridium · hace 4 min · Cordada Andes Sur</p>
+        <p style="opacity:0.6;font-size:0.78rem">Vía satélite Iridium · hace 4 min · Cordada Andes Sur</p>
     </div>
 </section>
 
 <!-- FAMILIA / PAZ MENTAL -->
 <section class="family-band">
-    <img src="fotos/pexels-mateusz-29241224.jpg" alt="Seguridad y tranquilidad en la montana" class="family-band-img">
+    <img src="fotos/pexels-mateusz-29241224.jpg" alt="Seguridad y tranquilidad en la montaña" class="family-band-img">
     <div class="family-band-inner">
         <p style="font-size:0.78rem;font-weight:700;letter-spacing:2px;color:#E84A0C;margin-bottom:0.75rem">PAZ MENTAL 24/7</p>
         <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:800;line-height:1.25;margin-bottom:1rem">La tranquilidad de tu familia lo vale</h2>
-        <p style="opacity:0.75;font-size:0.92rem;line-height:1.6;margin-bottom:1.25rem">Diles "estoy bien" desde cualquier rincón de la cordillera. Rompe el silencio de la montana. Tus seres queridos siguen tu ruta en tiempo real desde casa.</p>
-        <p style="opacity:0.55;font-size:0.82rem">+500 montanistas confian en Safe2Go cada mes en Chile</p>
+        <p style="opacity:0.75;font-size:0.92rem;line-height:1.6;margin-bottom:1.25rem">Diles "estoy bien" desde cualquier rincón de la cordillera. Rompe el silencio de la montaña. Tus seres queridos siguen tu ruta en tiempo real desde casa.</p>
+        <p style="opacity:0.55;font-size:0.82rem">+500 montañistas confían en Safe2Go cada mes en Chile</p>
     </div>
 </section>
 
