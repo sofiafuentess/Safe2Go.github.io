@@ -4,14 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Safe2Go — Explora Lejos, Vuelve Seguro</title>
-    <link rel="icon" type="png" href="fotos/favicon.png">
+    <link rel="icon" type="image/png" href="fotos/favicon.png">
     <link rel="shortcut icon" type="image/png" href="fotos/favicon.png">
     <link rel="apple-touch-icon" href="fotos/apple-touch-icon.png">
+
+    <!-- SEO + Open Graph -->
+    <meta name="description" content="Arriendo de GPS satelital Garmin inReach Mini 2 con cobertura global Iridium. Preconfigurado, despacho a todo Chile vía Blue Express. Desde $12.990/día.">
+    <meta property="og:title" content="Safe2Go — Explora lejos, vuelve seguro">
+    <meta property="og:description" content="Arriendo de GPS satelital Garmin inReach Mini 2. Plug & play, despacho nacional, SOS 24/7.">
+    <meta property="og:image" content="https://safe2go.cl/fotos/og-cover.jpg">
+    <meta property="og:url" content="https://safe2go.cl">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
     <style>
         *{box-sizing:border-box;margin:0;padding:0}
         body{font-family:'Inter',sans-serif;color:#1E2B35;background:#fff}
@@ -123,236 +132,62 @@
 
         /* ===== RESPONSIVE MOBILE ===== */
         @media (max-width: 768px) {
-
-            /* NAVBAR */
-            .navbar {
-                padding: 0.75rem 1.25rem;
-            }
-            .nav-links {
-                display: none;
-            }
-            .nav-logo img {
-                height: 32px;
-            }
-
-            /* HERO */
-            .hero {
-                padding: 3rem 1.25rem;
-                min-height: auto;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .hero-inner {
-                max-width: 100%;
-            }
-            .hero .btn-primary {
-                width: 100%;
-                padding: 0.85rem;
-                font-size: 1rem;
-            }
-
-            /* SECTIONS */
-            .section, .section-alt {
-                padding: 2rem 1.25rem;
-            }
-            .section-title {
-                font-size: 1.1rem;
-            }
-
-            /* PRICING */
-            .pricing-list {
-                max-width: 100%;
-            }
-            .pricing-row {
-                padding: 0.85rem 1rem;
-            }
-            .p-name { font-size: 0.85rem; }
-            .p-days { font-size: 0.82rem; min-width: 60px; }
-            .p-price .amount { font-size: 1.05rem; }
-
-            /* STEPS */
-            .steps-grid {
-                grid-template-columns: 1fr;
-                max-width: 100%;
-                gap: 0.75rem;
-            }
-            .step-card {
-                display: flex;
-                align-items: flex-start;
-                gap: 1rem;
-                text-align: left;
-                padding: 1.1rem;
-            }
-            .step-icon {
-                width: 44px;
-                height: 44px;
-                min-width: 44px;
-                margin: 0;
-                font-size: 1.1rem;
-            }
-
-            /* FEATURES */
-            .features-section {
-                grid-template-columns: 1fr;
-                padding: 2rem 1.25rem;
-                gap: 1.5rem;
-            }
-            .features-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 0.75rem;
-            }
-            .features-device {
-                height: 140px;
-                font-size: 3rem;
-            }
-
-            /* DEVICE SECTION */
-            #equipo .section, #equipo {
-                padding: 2rem 1.25rem;
-            }
-            #equipo > div {
-                grid-template-columns: 1fr !important;
-                gap: 1.5rem !important;
-            }
-            #equipo [style*="grid-template-columns:0.9fr"] {
-                display: block !important;
-            }
-
-            /* TABS - scrollable on mobile */
-            #device-tabs {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                flex-wrap: nowrap;
-            }
-            #device-tabs button {
-                white-space: nowrap;
-                padding: 0.5rem 0.85rem;
-                font-size: 0.8rem;
-            }
-
-            /* FEATURES GRID in device section */
-            [style*="grid-template-columns:1fr 1fr"] {
-                grid-template-columns: 1fr 1fr !important;
-            }
-
-            /* FAQ */
-            .faq-container {
-                max-width: 100%;
-            }
-            .faq-q { font-size: 0.82rem; padding: 0.7rem 0.9rem; }
-            .faq-a { font-size: 0.78rem; padding: 0 0.9rem 0.75rem; }
-
-            /* CTA */
-            .cta-band {
-                padding: 2.5rem 1.25rem;
-            }
-            .cta-band h2 {
-                font-size: 1.4rem;
-            }
-            .cta-band .btn-primary {
-                width: 100%;
-                padding: 0.85rem;
-            }
-            .alliance-logos {
-                flex-direction: column;
-                gap: 0.5rem;
-                align-items: center;
-            }
-
-            /* FOOTER */
-            footer {
-                padding: 2rem 1.25rem 1.25rem;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 1.5rem;
-            }
-            .footer-brand {
-                grid-column: 1 / -1;
-            }
-
-            /* CART DRAWER */
-            #cart-drawer {
-                width: 100% !important;
-                max-width: 100vw !important;
-            }
-
-            /* MODAL */
-            #corp-modal .modal-box {
-                padding: 1.75rem 1.25rem;
-                max-width: 95vw;
-            }
+            .navbar{padding:0.75rem 1.25rem}
+            .nav-links{display:none}
+            .nav-logo img{height:32px}
+            .hero{padding:3rem 1.25rem;min-height:auto}
+            .hero h1{font-size:2rem}
+            .hero-inner{max-width:100%}
+            .hero .btn-primary{width:100%;padding:0.85rem;font-size:1rem}
+            .section,.section-alt{padding:2rem 1.25rem}
+            .section-title{font-size:1.1rem}
+            .pricing-list{max-width:100%}
+            .pricing-row{padding:0.85rem 1rem}
+            .p-name{font-size:0.85rem}
+            .p-days{font-size:0.82rem;min-width:60px}
+            .p-price .amount{font-size:1.05rem}
+            .steps-grid{grid-template-columns:1fr;max-width:100%;gap:0.75rem}
+            .step-card{display:flex;align-items:flex-start;gap:1rem;text-align:left;padding:1.1rem}
+            .step-icon{width:44px;height:44px;min-width:44px;margin:0;font-size:1.1rem}
+            .features-section{grid-template-columns:1fr;padding:2rem 1.25rem;gap:1.5rem}
+            .features-grid{grid-template-columns:1fr 1fr;gap:0.75rem}
+            .features-device{height:140px;font-size:3rem}
+            #device-tabs{overflow-x:auto;-webkit-overflow-scrolling:touch;flex-wrap:nowrap}
+            #device-tabs button{white-space:nowrap;padding:0.5rem 0.85rem;font-size:0.8rem}
+            .faq-container{max-width:100%}
+            .faq-q{font-size:0.82rem;padding:0.7rem 0.9rem}
+            .faq-a{font-size:0.78rem;padding:0 0.9rem 0.75rem}
+            .cta-band{padding:2.5rem 1.25rem}
+            .cta-band h2{font-size:1.4rem}
+            .cta-band .btn-primary{width:100%;padding:0.85rem}
+            .alliance-logos{flex-direction:column;gap:0.5rem;align-items:center}
+            footer{padding:2rem 1.25rem 1.25rem}
+            .footer-grid{grid-template-columns:1fr 1fr;gap:1.5rem}
+            .footer-brand{grid-column:1 / -1}
+            #cart-drawer{width:100% !important;max-width:100vw !important}
+            #corp-modal .modal-box{padding:1.75rem 1.25rem;max-width:95vw}
         }
-
         @media (max-width: 480px) {
-            .hero h1 { font-size: 1.75rem; }
-            .features-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .footer-brand { grid-column: auto; }
-
-            /* Mobile sticky bar */
-            .mobile-sticky {
-                display: flex !important;
-            }
+            .hero h1{font-size:1.75rem}
+            .features-grid{grid-template-columns:1fr}
+            .footer-grid{grid-template-columns:1fr}
+            .footer-brand{grid-column:auto}
+            .mobile-sticky{display:flex !important}
         }
 
         /* MOBILE STICKY BOTTOM BAR */
-        .mobile-sticky {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #1E2B35;
-            padding: 0.75rem 1.25rem;
-            align-items: center;
-            justify-content: space-between;
-            z-index: 500;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        .mobile-sticky-price {
-            color: #fff;
-        }
-        .mobile-sticky-price span {
-            display: block;
-            font-size: 0.65rem;
-            opacity: 0.6;
-        }
-        .mobile-sticky-price strong {
-            font-size: 1.1rem;
-            font-weight: 800;
-        }
-        @media (max-width: 768px) {
-            .mobile-sticky { display: flex; }
-            body { padding-bottom: 70px; }
-        }
+        .mobile-sticky{display:none;position:fixed;bottom:0;left:0;right:0;background:#1E2B35;padding:0.75rem 1.25rem;align-items:center;justify-content:space-between;z-index:500;border-top:1px solid rgba(255,255,255,0.1)}
+        .mobile-sticky-price{color:#fff}
+        .mobile-sticky-price span{display:block;font-size:0.65rem;opacity:0.6}
+        .mobile-sticky-price strong{font-size:1.1rem;font-weight:800}
+        @media (max-width: 768px){.mobile-sticky{display:flex};body{padding-bottom:70px}}
 
         /* DEVICE SECTION GRID */
-        .device-wrapper > div:first-child {
-            display: grid;
-            grid-template-columns: 0.9fr 1.6fr;
-            gap: 3rem;
-            align-items: start;
-        }
-        @media (max-width: 768px) {
-            .device-wrapper > div:first-child {
-                grid-template-columns: 1fr !important;
-                gap: 1.5rem !important;
-            }
-        }
-
-
-        @media (max-width: 768px) {
-            .device-inner-grid {
-                grid-template-columns: 1fr !important;
-                gap: 1.5rem !important;
-            }
-        }
-
+        .device-inner-grid{display:grid;grid-template-columns:0.9fr 1.6fr;gap:3rem;align-items:start}
+        @media (max-width:768px){.device-inner-grid{grid-template-columns:1fr !important;gap:1.5rem !important}}
 
         /* ===== IMAGE TREATMENTS ===== */
-        .hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#1E2B35 0%,#2d3f4d 100%)}
+        .hero{position:relative;overflow:hidden}
         .hero-bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 68%;opacity:0.4;z-index:0}
         .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,#1E2B35 30%,rgba(30,43,53,0.55) 65%,rgba(30,43,53,0.15) 100%);z-index:0}
         .hero-inner{position:relative;z-index:1}
@@ -360,7 +195,7 @@
         .features-device-img{width:100%;height:260px;border-radius:18px;object-fit:cover;object-position:center 68%;border:1px solid rgba(255,255,255,0.1);box-shadow:0 20px 50px rgba(0,0,0,0.35)}
         @media (max-width:768px){.features-device-img{height:140px}}
 
-        .device-photo-box{background:radial-gradient(ellipse at center, #2d3f4d 0%, #1E2B35 75%);border-radius:16px;overflow:hidden;position:relative;margin-bottom:1.5rem;padding:1.75rem 1.75rem 0}
+        .device-photo-box{background:radial-gradient(ellipse at center,#2d3f4d 0%,#1E2B35 75%);border-radius:16px;overflow:hidden;position:relative;margin-bottom:1.5rem;padding:1.75rem 1.75rem 0}
         .device-photo-box img{width:100%;display:block;height:280px;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 18px 22px rgba(0,0,0,0.45))}
         .device-photo-overlay{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:1.1rem 1.5rem 1.5rem;background:transparent}
         .device-photo-overlay::before{content:'';position:absolute;top:-1.75rem;left:0;right:0;height:1px;background:rgba(255,255,255,0.08)}
@@ -402,23 +237,23 @@
 <!-- MODAL CORPORATIVO -->
 <div class="modal-backdrop" id="corp-modal">
     <div class="modal-box">
-        <button class="modal-close" onclick="document.getElementById('corp-modal').style.display='none'">✕</button>
+        <button class="modal-close" onclick="document.getElementById('corp-modal').style.display='none'">&#10005;</button>
         <i class="fa-solid fa-building modal-icon"></i>
         <h2 class="modal-title">Arriendo Corporativo</h2>
-        <p class="modal-desc">Soluciones satelitales para empresas, agencias de turismo aventura y expediciones grupales. Cuéntanos tu proyecto.</p>
+        <p class="modal-desc">Soluciones satelitales para empresas, agencias de turismo aventura y expediciones grupales. Cu&#233;ntanos tu proyecto.</p>
         <div class="modal-options">
             <a href="mailto:safe2go.chile@gmail.com" class="modal-opt email">
                 <i class="fa-solid fa-envelope modal-opt-icon" style="color:#E84A0C"></i>
                 <div>
-                    <p class="modal-opt-title">Escríbenos por correo</p>
+                    <p class="modal-opt-title">Esch&#237;benos por correo</p>
                     <p class="modal-opt-sub">safe2go.chile@gmail.com</p>
                 </div>
             </a>
             <a href="https://wa.me/56935706918?text=Hola%20Safe2Go%2C%20quisiera%20obtener%20informaci%C3%B3n%20sobre%20arriendo%20corporativo." target="_blank" class="modal-opt wsp">
                 <i class="fa-brands fa-whatsapp modal-opt-icon"></i>
                 <div>
-                    <p class="modal-opt-title">Contactar vía WhatsApp</p>
-                    <p class="modal-opt-sub">Respuesta en menos de 2 horas hábiles</p>
+                    <p class="modal-opt-title">Contactar v&#237;a WhatsApp</p>
+                    <p class="modal-opt-sub">Respuesta en menos de 2 horas h&#225;biles</p>
                 </div>
             </a>
         </div>
@@ -431,8 +266,9 @@
         <img src="fotos/Logo%20Safe2Go.png" alt="Safe2Go">
     </div>
     <nav class="nav-links">
+        <a href="#como-funciona">C&#243;mo Funciona</a>
+        <a href="#equipo">Equipo</a>
         <a href="#planes">Planes</a>
-        <a href="#como-funciona">Cómo Funciona</a>
         <a href="#faq">FAQ</a>
         <button class="btn-corp" onclick="document.getElementById('corp-modal').style.display='flex'">ARRIENDO CORPORATIVO</button>
     </nav>
@@ -446,101 +282,35 @@
     <img src="fotos/pexels-andreas-gusicov-785963761-33455680.jpg" alt="Cordada en glaciar andino" class="hero-bg-img">
     <div class="hero-inner">
         <h1>EXPLORA LEJOS,<br><span>VUELVE SEGURO.</span></h1>
-        <p>Arriendo de GPS satelital Garmin inReach.</p>
-        <p style="margin-bottom:1.75rem">Democratizamos la seguridad en montaña para que nunca estés solo.</p>
+        <p>Arriendo de GPS satelital Garmin inReach Mini 2.</p>
+        <p style="margin-bottom:1.75rem">Preconfigurado, cargado al 100% y con despacho a todo Chile.</p>
         <button class="btn-primary" style="font-size:0.95rem;padding:0.75rem 2rem;" onclick="openCart()">RESERVAR KIT &nbsp;<i class="fa-solid fa-arrow-right"></i></button>
-    </div>
-</section>
-
-<!-- PLANES FLEXIBLES -->
-<section class="section" id="planes">
-    <p class="section-title">PLANES FLEXIBLES</p>
-    <p class="section-sub">Tarifas dinámicas que se ajustan exactamente a la duración de tu expedición.</p>
-    <div class="pricing-list">
-        <div class="pricing-row">
-            <div><p class="p-name">Express</p><p class="p-desc">Ideal para cerros por el día.</p></div>
-            <div class="p-days">1 día</div>
-            <div class="p-price"><span class="amount">$12.990</span><span class="label">Tarifa Total</span></div>
-        </div>
-        <div class="pricing-row popular">
-            <span class="popular-badge">MÁS POPULAR</span>
-            <div><p class="p-name">Escapada / Finde</p><p class="p-desc">Fin de semana o puente festivo.</p></div>
-            <div class="p-days">2 días</div>
-            <div class="p-price"><span class="amount">$19.990</span><span class="label">Tarifa Total</span></div>
-        </div>
-        <div class="pricing-row">
-            <div><p class="p-name">Aventura</p><p class="p-desc">Travesías tipo Sierra de Ramón.</p></div>
-            <div class="p-days">3 días</div>
-            <div class="p-price"><span class="amount">$26.990</span><span class="label">Tarifa Total</span></div>
-        </div>
-        <div class="pricing-row">
-            <div><p class="p-name">Aventura Media</p><p class="p-desc">Travesías largas, Patagonia.</p></div>
-            <div class="p-days">4–10 días</div>
-            <div class="p-price"><span class="amount">$6.990</span><span class="label">/ por día</span></div>
-        </div>
-        <div class="pricing-row">
-            <div><p class="p-name">Expedición Extrema</p><p class="p-desc">Alta montaña o viajes remotos prolongados.</p></div>
-            <div class="p-days">11+ días</div>
-            <div class="p-price"><span class="amount">$5.990</span><span class="label">/ por día</span></div>
-        </div>
-    </div>
-    <p class="pricing-note">Los valores no incluyen garantía reembolsable de $100.000. Despacho vía Blue Express se cotiza en el checkout.</p>
-    <div style="text-align:center;margin-top:2rem">
-        <button class="btn-primary" style="padding:0.75rem 2.5rem;font-size:0.95rem;" onclick="openCart()">CALCULAR TU ARRIENDO ONLINE</button>
-    </div>
-</section>
-
-<!-- 3 PASOS -->
-<section class="section-alt" id="como-funciona">
-    <div class="steps-img-wrap">
-        <img src="fotos/pexels-jedrzej-koralewski-14125120-31348061.jpg" alt="Montañista subiendo con bastones en glaciar">
-        <div class="steps-img-caption"><p>EXPLORA CON RESPALDO SATELITAL</p></div>
-    </div>
-    <p class="section-title">TU AVENTURA EN 3 PASOS</p>
-    <p class="section-sub" style="margin-bottom:1.25rem">Todo el proceso es 100% digital. Sin complicaciones.</p>
-    <div class="steps-grid">
-        <div class="step-card">
-            <div class="step-icon"><i class="fa-regular fa-calendar-check"></i></div>
-            <h3>RESERVA ONLINE</h3>
-            <p>Selecciona las fechas y paga online. Proceso 100% digital y rápido.</p>
-        </div>
-        <div class="step-card">
-            <div class="step-icon"><i class="fa-solid fa-box-open"></i></div>
-            <h3>RECIBE TU KIT</h3>
-            <p>Blue Express lo despacha configurado y cargado al 100%. Incluye etiqueta de retorno prepagada.</p>
-        </div>
-        <div class="step-card">
-            <div class="step-icon"><i class="fa-solid fa-person-hiking"></i></div>
-            <h3>EXPLORA Y VUELVE SEGURO</h3>
-            <p>Disfruta la montaña con respaldo satelital. Al volver, deposita en cualquier punto Blue Express.</p>
-        </div>
     </div>
 </section>
 
 <!-- FEATURES -->
 <section class="features-section">
     <div>
-        <p class="features-eyebrow">TECNOLOGÍA SATELITAL IRIDIUM</p>
-        <h2 class="features-headline">Seguridad sin límites</h2>
-        <p class="features-sub">La tecnología líder en rescate global, ahora al alcance de tu mano. El Garmin inReach Mini 2 es tu compañero esencial en cada ruta.</p>
+        <p class="features-eyebrow">TECNOLOG&#205;A SATELITAL IRIDIUM</p>
+        <h2 class="features-headline">Seguridad sin l&#237;mites</h2>
+        <p class="features-sub">La tecnolog&#237;a l&#237;der en rescate global, ahora al alcance de tu mano. El Garmin inReach Mini 2 es tu compa&#241;ero esencial en cada ruta.</p>
         <div class="features-grid">
             <div class="feat"><span class="feat-icon"><i class="fa-solid fa-earth-americas"></i></span><div><h4>Cobertura Global</h4><p>Red Iridium, polo a polo.</p></div></div>
             <div class="feat"><span class="feat-icon"><i class="fa-solid fa-asterisk"></i></span><div><h4>SOS 24/7</h4><p>Centro de respuesta internacional.</p></div></div>
-            <div class="feat"><span class="feat-icon"><i class="fa-solid fa-check-circle"></i></span><div><h4>Check-ins Ilimitados</h4><p>Avisa que estás bien, gratis.</p></div></div>
-            <div class="feat"><span class="feat-icon"><i class="fa-solid fa-bolt"></i></span><div><h4>Plug & Play</h4><p>Equipo preconfigurado y listo.</p></div></div>
+            <div class="feat"><span class="feat-icon"><i class="fa-solid fa-check-circle"></i></span><div><h4>Check-ins Ilimitados</h4><p>Avisa que est&#225;s bien, gratis.</p></div></div>
+            <div class="feat"><span class="feat-icon"><i class="fa-solid fa-bolt"></i></span><div><h4>Plug &amp; Play</h4><p>Equipo preconfigurado y listo.</p></div></div>
             <div class="feat"><span class="feat-icon"><i class="fa-solid fa-truck"></i></span><div><h4>Despacho a Todo Chile</h4><p>Blue Express + etiqueta prepagada.</p></div></div>
             <div class="feat"><span class="feat-icon"><i class="fa-solid fa-people-arrows"></i></span><div><h4>Tranquilidad Familiar</h4><p>Seguimiento GPS en tiempo real.</p></div></div>
         </div>
     </div>
-    <img src="fotos/pexels-danny-kaas-2379641-9743928.jpg" alt="Jeep 4x4 cruzando río en bosque de montaña" class="features-device-img">
+    <img src="fotos/pexels-danny-kaas-2379641-9743928.jpg" alt="Jeep 4x4 cruzando r&#237;o en bosque de monta&#241;a" class="features-device-img">
 </section>
-
 
 <!-- GARMIN INREACH MINI 2 -->
 <section class="section" id="equipo" style="background:#f8f9fa">
-    <div style="max-width:1100px;margin:0 auto" class="device-wrapper">
+    <div style="max-width:1100px;margin:0 auto">
         <p style="font-size:0.75rem;font-weight:700;letter-spacing:2px;color:#E84A0C;margin-bottom:0.5rem">LO QUE LLEVAS EN EL KIT SAFE2GO</p>
-        <div class="device-inner-grid" style="display:grid;grid-template-columns:0.9fr 1.6fr;gap:3rem;align-items:start">
+        <div class="device-inner-grid">
 
             <!-- IZQUIERDA: imagen + specs -->
             <div>
@@ -549,33 +319,17 @@
                     <img src="fotos/Sin%20t%C3%ADtulo.png" alt="Garmin inReach Mini 2 - vista frontal">
                     <div class="device-photo-overlay">
                         <h3 style="color:#fff;font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:800;line-height:1.1;margin-bottom:0.4rem">GARMIN INREACH<br>MINI 2</h3>
-                        <p style="color:rgba(255,255,255,0.55);font-size:0.78rem">Comunicador satelital · Red Iridium global</p>
+                        <p style="color:rgba(255,255,255,0.55);font-size:0.78rem">Comunicador satelital &middot; Red Iridium global</p>
                     </div>
                 </div>
-
-                <!-- Specs grid -->
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1rem">
-                    <div style="background:#1E2B35;border-radius:10px;padding:0.9rem;text-align:center">
-                        <span style="color:#E84A0C;font-size:1.3rem;font-weight:800;font-family:'Space Grotesk',sans-serif">100g</span>
-                        <p style="color:rgba(255,255,255,0.5);font-size:0.68rem;letter-spacing:1px;margin-top:3px">PESO</p>
-                    </div>
-                    <div style="background:#1E2B35;border-radius:10px;padding:0.9rem;text-align:center">
-                        <span style="color:#E84A0C;font-size:1.3rem;font-weight:800;font-family:'Space Grotesk',sans-serif">14d</span>
-                        <p style="color:rgba(255,255,255,0.5);font-size:0.68rem;letter-spacing:1px;margin-top:3px">BATERÍA</p>
-                    </div>
-                    <div style="background:#1E2B35;border-radius:10px;padding:0.9rem;text-align:center">
-                        <span style="color:#E84A0C;font-size:1.3rem;font-weight:800;font-family:'Space Grotesk',sans-serif">IPX7</span>
-                        <p style="color:rgba(255,255,255,0.5);font-size:0.68rem;letter-spacing:1px;margin-top:3px">AGUA</p>
-                    </div>
-                    <div style="background:#1E2B35;border-radius:10px;padding:0.9rem;text-align:center">
-                        <span style="color:#E84A0C;font-size:1.3rem;font-weight:800;font-family:'Space Grotesk',sans-serif">100%</span>
-                        <p style="color:rgba(255,255,255,0.5);font-size:0.68rem;letter-spacing:1px;margin-top:3px">COBERTURA</p>
-                    </div>
+                    <div style="background:#1E2B35;border-radius:10px;padding:0.9rem;text-align:center"><span style="color:#E84A0C;font-size:1.3rem;font-weight:800;font-family:'Space Grotesk',sans-serif">100g</span><p style="color:rgba(255,255,255,0.5);font-size:0.68rem;letter-spacing:1px;margin-top:3px">PESO</p></div>
+                    <div style="background:#1E2B35;border-radius:10px;padding:0.9rem;text-align:center"><span style="color:#E84A0C;font-size:1.3rem;font-weight:800;font-family:'Space Grotesk',sans-serif">14d</span><p style="color:rgba(255,255,255,0.5);font-size:0.68rem;letter-spacing:1px;margin-top:3px">BATER&#205;A</p></div>
+                    <div style="background:#1E2B35;border-radius:10px;padding:0.9rem;text-align:center"><span style="color:#E84A0C;font-size:1.3rem;font-weight:800;font-family:'Space Grotesk',sans-serif">IPX7</span><p style="color:rgba(255,255,255,0.5);font-size:0.68rem;letter-spacing:1px;margin-top:3px">AGUA</p></div>
+                    <div style="background:#1E2B35;border-radius:10px;padding:0.9rem;text-align:center"><span style="color:#E84A0C;font-size:1.3rem;font-weight:800;font-family:'Space Grotesk',sans-serif">100%</span><p style="color:rgba(255,255,255,0.5);font-size:0.68rem;letter-spacing:1px;margin-top:3px">COBERTURA</p></div>
                 </div>
-
-                <!-- Badges -->
                 <div style="display:flex;flex-wrap:wrap;gap:0.4rem">
-                    <span style="background:#1E2B35;color:#E84A0C;font-size:0.7rem;font-weight:700;padding:4px 10px;border-radius:5px;letter-spacing:0.5px">IRIDIUM®</span>
+                    <span style="background:#1E2B35;color:#E84A0C;font-size:0.7rem;font-weight:700;padding:4px 10px;border-radius:5px;letter-spacing:0.5px">IRIDIUM&reg;</span>
                     <span style="background:#1E2B35;color:rgba(255,255,255,0.6);font-size:0.7rem;font-weight:700;padding:4px 10px;border-radius:5px;letter-spacing:0.5px">MIL-STD-810</span>
                     <span style="background:#1E2B35;color:rgba(255,255,255,0.6);font-size:0.7rem;font-weight:700;padding:4px 10px;border-radius:5px;letter-spacing:0.5px">IPX7</span>
                     <span style="background:#1E2B35;color:rgba(255,255,255,0.6);font-size:0.7rem;font-weight:700;padding:4px 10px;border-radius:5px;letter-spacing:0.5px">IERCC 24/7</span>
@@ -585,104 +339,59 @@
             <!-- DERECHA: tabs + contenido -->
             <div>
                 <h2 style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;color:#1E2B35;line-height:1.1;margin-bottom:0.5rem">GARMIN INREACH<br>MINI 2</h2>
-                <p style="color:#666;font-size:0.88rem;line-height:1.6;margin-bottom:1.5rem">El comunicador satelital más compacto del mundo con cobertura global Iridium. Todo lo que necesitas saber antes de tu expedición.</p>
-
-                <!-- TABS -->
+                <p style="color:#666;font-size:0.88rem;line-height:1.6;margin-bottom:1.5rem">El comunicador satelital m&#225;s compacto del mundo con cobertura global Iridium. Todo lo que necesitas saber antes de tu expedici&#243;n.</p>
                 <div style="display:flex;gap:0;border-bottom:2px solid #eee;margin-bottom:1.5rem" id="device-tabs">
                     <button onclick="showTab('funciones')" id="tab-funciones" style="background:none;border:none;border-bottom:2px solid #E84A0C;margin-bottom:-2px;padding:0.6rem 1.1rem;font-size:0.85rem;font-weight:600;color:#E84A0C;cursor:pointer;font-family:'Inter',sans-serif">Funciones clave</button>
-                    <button onclick="showTab('ficha')" id="tab-ficha" style="background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-2px;padding:0.6rem 1.1rem;font-size:0.85rem;font-weight:500;color:#888;cursor:pointer;font-family:'Inter',sans-serif">Ficha técnica</button>
-                    <button onclick="showTab('autonomia')" id="tab-autonomia" style="background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-2px;padding:0.6rem 1.1rem;font-size:0.85rem;font-weight:500;color:#888;cursor:pointer;font-family:'Inter',sans-serif">Autonomía</button>
+                    <button onclick="showTab('ficha')" id="tab-ficha" style="background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-2px;padding:0.6rem 1.1rem;font-size:0.85rem;font-weight:500;color:#888;cursor:pointer;font-family:'Inter',sans-serif">Ficha t&#233;cnica</button>
+                    <button onclick="showTab('autonomia')" id="tab-autonomia" style="background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-2px;padding:0.6rem 1.1rem;font-size:0.85rem;font-weight:500;color:#888;cursor:pointer;font-family:'Inter',sans-serif">Autonom&#237;a</button>
                     <button onclick="showTab('arriendo')" id="tab-arriendo" style="background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-2px;padding:0.6rem 1.1rem;font-size:0.85rem;font-weight:500;color:#888;cursor:pointer;font-family:'Inter',sans-serif">Para el arriendo</button>
                 </div>
 
-                <!-- TAB: Funciones clave -->
                 <div id="content-funciones">
                     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.85rem">
-                        <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem">
-                            <i class="fa-solid fa-satellite-dish" style="color:#E84A0C;font-size:1.1rem;margin-bottom:0.5rem;display:block"></i>
-                            <p style="font-weight:700;font-size:0.85rem;color:#1E2B35;margin-bottom:0.3rem">SOS satelital interactivo</p>
-                            <p style="font-size:0.78rem;color:#666;line-height:1.5">Botón SOS dedicado que conecta directamente con el IERCC Garmin — centro de coordinación de rescate 24/7. Respuesta bidireccional vía satélite.</p>
-                        </div>
-                        <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem">
-                            <i class="fa-solid fa-earth-americas" style="color:#E84A0C;font-size:1.1rem;margin-bottom:0.5rem;display:block"></i>
-                            <p style="font-weight:700;font-size:0.85rem;color:#1E2B35;margin-bottom:0.3rem">Red Iridium — cobertura global</p>
-                            <p style="font-size:0.78rem;color:#666;line-height:1.5">La única red con cobertura de polo a polo. Funciona en la Cordillera, Atacama, Patagonia, Antártica y cualquier punto del planeta.</p>
-                        </div>
-                        <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem">
-                            <i class="fa-solid fa-message" style="color:#E84A0C;font-size:1.1rem;margin-bottom:0.5rem;display:block"></i>
-                            <p style="font-weight:700;font-size:0.85rem;color:#1E2B35;margin-bottom:0.3rem">Mensajería bidireccional</p>
-                            <p style="font-size:0.78rem;color:#666;line-height:1.5">Envía y recibe mensajes de texto desde cualquier lugar sin señal celular. Conecta con familia, amigos o el equipo base.</p>
-                        </div>
-                        <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem">
-                            <i class="fa-solid fa-location-dot" style="color:#E84A0C;font-size:1.1rem;margin-bottom:0.5rem;display:block"></i>
-                            <p style="font-weight:700;font-size:0.85rem;color:#1E2B35;margin-bottom:0.3rem">MapShare™ — seguimiento en vivo</p>
-                            <p style="font-size:0.78rem;color:#666;line-height:1.5">Comparte tu ubicación GPS en tiempo real con tus contactos desde cualquier dispositivo con internet.</p>
-                        </div>
-                        <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem">
-                            <i class="fa-solid fa-rotate-left" style="color:#E84A0C;font-size:1.1rem;margin-bottom:0.5rem;display:block"></i>
-                            <p style="font-weight:700;font-size:0.85rem;color:#1E2B35;margin-bottom:0.3rem">Navegación TracBack®</p>
-                            <p style="font-size:0.78rem;color:#666;line-height:1.5">Si te pierdes, devuelve exactamente al punto de inicio siguiendo el mismo camino recorrido. Sin mapas adicionales.</p>
-                        </div>
-                        <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem">
-                            <i class="fa-solid fa-mobile-screen-button" style="color:#E84A0C;font-size:1.1rem;margin-bottom:0.5rem;display:block"></i>
-                            <p style="font-weight:700;font-size:0.85rem;color:#1E2B35;margin-bottom:0.3rem">App Garmin Explore™</p>
-                            <p style="font-size:0.78rem;color:#666;line-height:1.5">Vincula el inReach Mini 2 a tu iPhone o Android por Bluetooth. Escribe mensajes desde tu teléfono y accede a mapas topográficos.</p>
-                        </div>
+                        <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem"><i class="fa-solid fa-satellite-dish" style="color:#E84A0C;font-size:1.1rem;margin-bottom:0.5rem;display:block"></i><p style="font-weight:700;font-size:0.85rem;color:#1E2B35;margin-bottom:0.3rem">SOS satelital interactivo</p><p style="font-size:0.78rem;color:#666;line-height:1.5">Bot&#243;n SOS dedicado que conecta directamente con el IERCC Garmin &mdash; centro de coordinaci&#243;n de rescate 24/7. Respuesta bidireccional v&#237;a sat&#233;lite.</p></div>
+                        <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem"><i class="fa-solid fa-earth-americas" style="color:#E84A0C;font-size:1.1rem;margin-bottom:0.5rem;display:block"></i><p style="font-weight:700;font-size:0.85rem;color:#1E2B35;margin-bottom:0.3rem">Red Iridium &mdash; cobertura global</p><p style="font-size:0.78rem;color:#666;line-height:1.5">La &#250;nica red con cobertura de polo a polo. Funciona en la Cordillera, Atacama, Patagonia, Ant&#225;rtica y cualquier punto del planeta.</p></div>
+                        <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem"><i class="fa-solid fa-message" style="color:#E84A0C;font-size:1.1rem;margin-bottom:0.5rem;display:block"></i><p style="font-weight:700;font-size:0.85rem;color:#1E2B35;margin-bottom:0.3rem">Mensajer&#237;a bidireccional</p><p style="font-size:0.78rem;color:#666;line-height:1.5">Env&#237;a y recibe mensajes de texto desde cualquier lugar sin se&#241;al celular. Conecta con familia, amigos o el equipo base.</p></div>
+                        <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem"><i class="fa-solid fa-location-dot" style="color:#E84A0C;font-size:1.1rem;margin-bottom:0.5rem;display:block"></i><p style="font-weight:700;font-size:0.85rem;color:#1E2B35;margin-bottom:0.3rem">MapShare&trade; &mdash; seguimiento en vivo</p><p style="font-size:0.78rem;color:#666;line-height:1.5">Comparte tu ubicaci&#243;n GPS en tiempo real con tus contactos desde cualquier dispositivo con internet.</p></div>
+                        <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem"><i class="fa-solid fa-rotate-left" style="color:#E84A0C;font-size:1.1rem;margin-bottom:0.5rem;display:block"></i><p style="font-weight:700;font-size:0.85rem;color:#1E2B35;margin-bottom:0.3rem">Navegaci&#243;n TracBack&reg;</p><p style="font-size:0.78rem;color:#666;line-height:1.5">Si te pierdes, devuelve exactamente al punto de inicio siguiendo el mismo camino recorrido. Sin mapas adicionales.</p></div>
+                        <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem"><i class="fa-solid fa-mobile-screen-button" style="color:#E84A0C;font-size:1.1rem;margin-bottom:0.5rem;display:block"></i><p style="font-weight:700;font-size:0.85rem;color:#1E2B35;margin-bottom:0.3rem">App Garmin Explore&trade;</p><p style="font-size:0.78rem;color:#666;line-height:1.5">Vincula el inReach Mini 2 a tu iPhone o Android por Bluetooth. Escribe mensajes desde tu tel&#233;fono y accede a mapas topogr&#225;ficos.</p></div>
                     </div>
-                    <div style="background:rgba(232,74,12,0.06);border:1px solid rgba(232,74,12,0.2);border-radius:10px;padding:1rem;margin-top:1rem;font-size:0.82rem;color:#1E2B35;line-height:1.5">
-                        <i class="fa-solid fa-circle-info" style="color:#E84A0C;margin-right:6px"></i>
-                        En tu kit Safe2Go el equipo llega <strong>preconfigurado con tus contactos de check-in y ruta cargada</strong>. Solo debes encenderlo y comenzar tu aventura.
-                    </div>
+                    <div style="background:rgba(232,74,12,0.06);border:1px solid rgba(232,74,12,0.2);border-radius:10px;padding:1rem;margin-top:1rem;font-size:0.82rem;color:#1E2B35;line-height:1.5"><i class="fa-solid fa-circle-info" style="color:#E84A0C;margin-right:6px"></i>En tu kit Safe2Go el equipo llega <strong>preconfigurado con tus contactos de check-in y ruta cargada</strong>. Solo debes encenderlo y comenzar tu aventura.</div>
                 </div>
 
-                <!-- TAB: Ficha técnica -->
                 <div id="content-ficha" style="display:none">
                     <div style="display:flex;flex-direction:column;gap:0.4rem">
-                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Dimensiones</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">5.17 × 9.90 × 2.61 cm</span></div>
-                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Peso</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">100 g — el más liviano de su clase</span></div>
-                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Pantalla</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">23×23 mm · MIP transflectiva · 176×176 px</span></div>
-                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Red satelital</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">Iridium® · Cobertura global 100%</span></div>
-                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Resistencia al agua</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">IPX7 · 1 metro / 30 minutos</span></div>
-                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Resistencia a golpes</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">MIL-STD-810 — estándar militar</span></div>
-                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Conectividad</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">Bluetooth · iOS y Android</span></div>
-                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Carga</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">Cable USB-C estándar</span></div>
-                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0"><span style="font-size:0.83rem;color:#888;font-weight:500">Temperatura operación</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">−20°C a 60°C</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Dimensiones</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">5.17 &times; 9.90 &times; 2.61 cm</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Peso</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">100 g &mdash; el m&#225;s liviano de su clase</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Pantalla</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">23&times;23 mm &middot; MIP transflectiva &middot; 176&times;176 px</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Red satelital</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">Iridium&reg; &middot; Cobertura global 100%</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Resistencia al agua</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">IPX7 &middot; 1 metro / 30 minutos</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Resistencia a golpes</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">MIL-STD-810 &mdash; est&#225;ndar militar</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Conectividad</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">Bluetooth &middot; iOS y Android</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Carga</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">Cable USB-C est&#225;ndar</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0"><span style="font-size:0.83rem;color:#888;font-weight:500">Temperatura operaci&#243;n</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">&minus;20&deg;C a 60&deg;C</span></div>
                     </div>
                 </div>
 
-                <!-- TAB: Autonomía -->
                 <div id="content-autonomia" style="display:none">
                     <div style="display:flex;flex-direction:column;gap:0.75rem">
-                        <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem;display:flex;justify-content:space-between;align-items:center">
-                            <div><p style="font-weight:700;font-size:0.88rem;color:#1E2B35">Seguimiento 10 min · cielo despejado</p><p style="font-size:0.78rem;color:#888;margin-top:2px">Recomendado para expediciones</p></div>
-                            <span style="font-size:1.5rem;font-weight:800;color:#E84A0C;font-family:'Space Grotesk',sans-serif">14 días</span>
-                        </div>
-                        <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem;display:flex;justify-content:space-between;align-items:center">
-                            <div><p style="font-weight:700;font-size:0.88rem;color:#1E2B35">Seguimiento 10 min · con vegetación</p><p style="font-size:0.78rem;color:#888;margin-top:2px">Bosque moderado o sombra parcial</p></div>
-                            <span style="font-size:1.5rem;font-weight:800;color:#E84A0C;font-family:'Space Grotesk',sans-serif">4 días</span>
-                        </div>
-                        <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem;display:flex;justify-content:space-between;align-items:center">
-                            <div><p style="font-weight:700;font-size:0.88rem;color:#1E2B35">Seguimiento 30 min · modo ahorro</p><p style="font-size:0.78rem;color:#888;margin-top:2px">Cielo despejado — máxima autonomía</p></div>
-                            <span style="font-size:1.5rem;font-weight:800;color:#E84A0C;font-family:'Space Grotesk',sans-serif">30 días</span>
-                        </div>
-                        <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem;display:flex;justify-content:space-between;align-items:center">
-                            <div><p style="font-weight:700;font-size:0.88rem;color:#1E2B35">Modo apagado (standby)</p><p style="font-size:0.78rem;color:#888;margin-top:2px">Solo GPS pasivo</p></div>
-                            <span style="font-size:1.5rem;font-weight:800;color:#E84A0C;font-family:'Space Grotesk',sans-serif">~1 año</span>
-                        </div>
+                        <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem;display:flex;justify-content:space-between;align-items:center"><div><p style="font-weight:700;font-size:0.88rem;color:#1E2B35">Seguimiento 10 min &middot; cielo despejado</p><p style="font-size:0.78rem;color:#888;margin-top:2px">Recomendado para expediciones</p></div><span style="font-size:1.5rem;font-weight:800;color:#E84A0C;font-family:'Space Grotesk',sans-serif">14 d&#237;as</span></div>
+                        <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem;display:flex;justify-content:space-between;align-items:center"><div><p style="font-weight:700;font-size:0.88rem;color:#1E2B35">Seguimiento 10 min &middot; con vegetaci&#243;n</p><p style="font-size:0.78rem;color:#888;margin-top:2px">Bosque moderado o sombra parcial</p></div><span style="font-size:1.5rem;font-weight:800;color:#E84A0C;font-family:'Space Grotesk',sans-serif">4 d&#237;as</span></div>
+                        <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem;display:flex;justify-content:space-between;align-items:center"><div><p style="font-weight:700;font-size:0.88rem;color:#1E2B35">Seguimiento 30 min &middot; modo ahorro</p><p style="font-size:0.78rem;color:#888;margin-top:2px">Cielo despejado &mdash; m&#225;xima autonom&#237;a</p></div><span style="font-size:1.5rem;font-weight:800;color:#E84A0C;font-family:'Space Grotesk',sans-serif">30 d&#237;as</span></div>
+                        <div style="background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem;display:flex;justify-content:space-between;align-items:center"><div><p style="font-weight:700;font-size:0.88rem;color:#1E2B35">Modo apagado (standby)</p><p style="font-size:0.78rem;color:#888;margin-top:2px">Solo GPS pasivo</p></div><span style="font-size:1.5rem;font-weight:800;color:#E84A0C;font-family:'Space Grotesk',sans-serif">~1 a&#241;o</span></div>
                     </div>
-                    <p style="font-size:0.78rem;color:#aaa;font-style:italic;margin-top:1rem">Tu equipo Safe2Go llega con la batería al 100%. Para expediciones de más de 10 días se recomienda llevar un powerbank. Carga por USB-C estándar.</p>
+                    <p style="font-size:0.78rem;color:#aaa;font-style:italic;margin-top:1rem">Tu equipo Safe2Go llega con la bater&#237;a al 100%. Para expediciones de m&#225;s de 10 d&#237;as se recomienda llevar un powerbank. Carga por USB-C est&#225;ndar.</p>
                 </div>
 
-                <!-- TAB: Para el arriendo -->
                 <div id="content-arriendo" style="display:none">
                     <div style="display:flex;flex-direction:column;gap:0.4rem">
-                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Kit incluido</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600;text-align:right;max-width:55%">Garmin inReach Mini 2 · Cable USB-C · Mosquetón · Guía rápida Safe2Go</span></div>
-                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Preconfigurado</span><span style="font-size:0.83rem;color:#E84A0C;font-weight:700">Sí — Plug & Play</span></div>
-                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Plan satelital</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600;text-align:right;max-width:55%">SOS ilimitado · Check-ins ilimitados · 10 SMS ($600/msg excedente)</span></div>
-                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Carga al entregar</span><span style="font-size:0.83rem;color:#E84A0C;font-weight:700">100% — verificado antes del despacho</span></div>
-                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Devolución</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600;text-align:right;max-width:55%">Etiqueta Blue Express prepagada incluida en el kit</span></div>
-                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Garantía</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">Retención $100.000 · liberación automática</span></div>
-                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0"><span style="font-size:0.83rem;color:#888;font-weight:500">App vinculada</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">Garmin Explore™ · iOS y Android</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Kit incluido</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600;text-align:right;max-width:55%">Garmin inReach Mini 2 &middot; Cable USB-C &middot; Mosquet&#243;n &middot; Gu&#237;a r&#225;pida Safe2Go</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Preconfigurado</span><span style="font-size:0.83rem;color:#E84A0C;font-weight:700">S&#237; &mdash; Plug &amp; Play</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Plan satelital</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600;text-align:right;max-width:55%">SOS ilimitado &middot; Check-ins ilimitados &middot; 10 SMS ($600/msg excedente)</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Carga al entregar</span><span style="font-size:0.83rem;color:#E84A0C;font-weight:700">100% &mdash; verificado antes del despacho</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Devoluci&#243;n</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600;text-align:right;max-width:55%">Etiqueta Blue Express prepagada incluida en el kit</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid #f0f0f0"><span style="font-size:0.83rem;color:#888;font-weight:500">Garant&#237;a</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">Retenci&#243;n $100.000 &middot; liberaci&#243;n autom&#225;tica</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:0.7rem 0"><span style="font-size:0.83rem;color:#888;font-weight:500">App vinculada</span><span style="font-size:0.83rem;color:#1E2B35;font-weight:600">Garmin Explore&trade; &middot; iOS y Android</span></div>
                     </div>
                     <div style="margin-top:1.25rem;display:flex;gap:0.75rem">
                         <button class="btn-primary" style="flex:1;padding:0.7rem" onclick="openCart()">Reservar este equipo</button>
@@ -706,46 +415,50 @@ function showTab(tab) {
 }
 </script>
 
-<!-- DESTINOS -->
-<section class="section-alt">
-    <p class="section-title">DESDE ATACAMA HASTA LA PATAGONIA</p>
-    <p class="section-sub" style="margin-bottom:2rem">Tu seguridad, en cada rincón de Chile.</p>
-    <div class="destinos-grid">
-        <div class="destino-card main">
-            <img src="fotos/pexels-marina-zvada-844583049-26382395.jpg" alt="Torres del Paine, Patagonia chilena">
-            <div class="destino-label"><p class="zona">PATAGONIA</p><p class="lugar">Torres del Paine · O Circuit</p></div>
+<!-- 3 PASOS -->
+<section class="section-alt" id="como-funciona">
+    <div class="steps-img-wrap">
+        <img src="fotos/pexels-jedrzej-koralewski-14125120-31348061.jpg" alt="Monta&#241;ista subiendo con bastones en glaciar">
+        <div class="steps-img-caption"><p>EXPLORA CON RESPALDO SATELITAL</p></div>
+    </div>
+    <p class="section-title">TU AVENTURA EN 3 PASOS</p>
+    <p class="section-sub" style="margin-bottom:1.25rem">Todo el proceso es 100% digital. Sin complicaciones.</p>
+    <div class="steps-grid">
+        <div class="step-card">
+            <div class="step-icon"><i class="fa-regular fa-calendar-check"></i></div>
+            <h3>RESERVA ONLINE</h3>
+            <p>Selecciona las fechas y paga online. Proceso 100% digital y r&#225;pido.</p>
         </div>
-        <div class="destino-card">
-            <img src="fotos/pexels-hernan-berwart-1212356-33585022.jpg" alt="Cordillera de los Andes al atardecer">
-            <div class="destino-label"><p class="zona">CORDILLERA CENTRAL</p><p class="lugar">Aconcagua · El Plomo · Tupungato</p></div>
+        <div class="step-card">
+            <div class="step-icon"><i class="fa-solid fa-box-open"></i></div>
+            <h3>RECIBE TU KIT</h3>
+            <p>Blue Express lo despacha configurado y cargado al 100%. Incluye etiqueta de retorno prepagada.</p>
         </div>
-        <div class="destino-card alta-montana">
-            <img src="fotos/pexels-ex-route-adventures-656223369-32109154.jpg" alt="Cordada caminando por cresta nevada">
-            <div class="destino-label"><p class="zona">ALTA MONTAÑA</p><p class="lugar">Cordadas · Glaciares</p></div>
+        <div class="step-card">
+            <div class="step-icon"><i class="fa-solid fa-person-hiking"></i></div>
+            <h3>EXPLORA Y VUELVE SEGURO</h3>
+            <p>Disfruta la monta&#241;a con respaldo satelital. Al volver, deposita en cualquier punto Blue Express.</p>
         </div>
     </div>
 </section>
 
-<!-- FAQ -->
-<section class="section" id="faq" style="padding-top:2.25rem;padding-bottom:2.25rem">
-    <p class="section-title">PREGUNTAS FRECUENTES</p>
-    <div class="faq-container" style="margin-top:1.25rem">
-        <details class="faq-item">
-            <summary class="faq-q">¿Tengo cobertura solo en Chile o en todo el mundo?</summary>
-            <p class="faq-a">Cobertura verdaderamente global vía red Iridium, de polo a polo. Funciona igual en Atacama, la Cordillera, la Antártica o el Himalaya.</p>
-        </details>
-        <details class="faq-item">
-            <summary class="faq-q">¿Cómo funciona el depósito de seguridad?</summary>
-            <p class="faq-a">Se retiene $100.000 en tu tarjeta al pagar. No es un cobro — es un hold. Se libera automáticamente en 3–5 días hábiles al devolver el equipo en buenas condiciones.</p>
-        </details>
-        <details class="faq-item">
-            <summary class="faq-q">¿Qué pasa si tengo que usar el botón SOS?</summary>
-            <p class="faq-a">Al presionar SOS te comunicarás con el Garmin Response Center (24/7), quienes coordinan con Socorro Andino, rescate o evacuación médica hasta tu ubicación exacta.</p>
-        </details>
-        <details class="faq-item">
-            <summary class="faq-q">¿Es difícil de usar si nunca tuve un GPS satelital?</summary>
-            <p class="faq-a">Cero fricción. El equipo llega configurado y se enlaza por Bluetooth a tu celular para escribir mensajes como WhatsApp vía la app Garmin Explore.</p>
-        </details>
+<!-- DESTINOS -->
+<section class="section-alt">
+    <p class="section-title">DESDE ATACAMA HASTA LA PATAGONIA</p>
+    <p class="section-sub" style="margin-bottom:2rem">Tu seguridad, en cada rinc&#243;n de Chile.</p>
+    <div class="destinos-grid">
+        <div class="destino-card main">
+            <img src="fotos/pexels-marina-zvada-844583049-26382395.jpg" alt="Torres del Paine, Patagonia chilena">
+            <div class="destino-label"><p class="zona">PATAGONIA</p><p class="lugar">Torres del Paine &middot; O Circuit</p></div>
+        </div>
+        <div class="destino-card">
+            <img src="fotos/pexels-hernan-berwart-1212356-33585022.jpg" alt="Cordillera de los Andes al atardecer">
+            <div class="destino-label"><p class="zona">CORDILLERA CENTRAL</p><p class="lugar">Aconcagua &middot; El Plomo &middot; Tupungato</p></div>
+        </div>
+        <div class="destino-card alta-montana">
+            <img src="fotos/pexels-ex-route-adventures-656223369-32109154.jpg" alt="Cordada caminando por cresta nevada">
+            <div class="destino-label"><p class="zona">ALTA MONTA&#209;A</p><p class="lugar">Cordadas &middot; Glaciares</p></div>
+        </div>
     </div>
 </section>
 
@@ -755,18 +468,114 @@ function showTab(tab) {
     <div class="testimonial-content">
         <i class="fa-solid fa-satellite-dish" style="color:#E84A0C;font-size:1.05rem;margin-bottom:0.5rem"></i>
         <p style="font-size:1.05rem;font-weight:600;line-height:1.35;font-family:'Space Grotesk',sans-serif;margin-bottom:0.4rem">"Cumbre lograda. Todo el equipo bien. Descendiendo ahora."</p>
-        <p style="opacity:0.6;font-size:0.78rem">Vía satélite Iridium · hace 4 min · Cordada Andes Sur</p>
+        <p style="opacity:0.6;font-size:0.78rem">V&#237;a sat&#233;lite Iridium &middot; hace 4 min &middot; Cordada Andes Sur</p>
     </div>
 </section>
 
 <!-- FAMILIA / PAZ MENTAL -->
 <section class="family-band">
-    <img src="fotos/pexels-mateusz-29241224.jpg" alt="Seguridad y tranquilidad en la montaña" class="family-band-img">
+    <img src="fotos/pexels-mateusz-29241224.jpg" alt="Seguridad y tranquilidad en la monta&#241;a" class="family-band-img">
     <div class="family-band-inner">
         <p style="font-size:0.78rem;font-weight:700;letter-spacing:2px;color:#E84A0C;margin-bottom:0.75rem">PAZ MENTAL 24/7</p>
         <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:800;line-height:1.25;margin-bottom:1rem">La tranquilidad de tu familia lo vale</h2>
-        <p style="opacity:0.75;font-size:0.92rem;line-height:1.6;margin-bottom:1.25rem">Diles "estoy bien" desde cualquier rincón de la cordillera. Rompe el silencio de la montaña. Tus seres queridos siguen tu ruta en tiempo real desde casa.</p>
-        <p style="opacity:0.55;font-size:0.82rem">+500 montañistas confían en Safe2Go cada mes en Chile</p>
+        <p style="opacity:0.75;font-size:0.92rem;line-height:1.6;margin-bottom:1.25rem">D&#237;les "estoy bien" desde cualquier rinc&#243;n de la cordillera. Rompe el silencio de la monta&#241;a. Tus seres queridos siguen tu ruta en tiempo real desde casa.</p>
+        <p style="opacity:0.55;font-size:0.82rem">El GPS satelital que usan los gu&#237;as de monta&#241;a profesionales en Chile.</p>
+    </div>
+</section>
+
+<!-- PLANES FLEXIBLES -->
+<section class="section" id="planes">
+    <p class="section-title">PLANES FLEXIBLES</p>
+    <p class="section-sub">Tarifas din&#225;micas que se ajustan exactamente a la duraci&#243;n de tu expedici&#243;n.</p>
+    <div class="pricing-list">
+        <div class="pricing-row">
+            <div><p class="p-name">Express</p><p class="p-desc">Ideal para cerros por el d&#237;a.</p></div>
+            <div class="p-days">1 d&#237;a</div>
+            <div class="p-price"><span class="amount">$12.990</span><span class="label">Tarifa Total</span></div>
+        </div>
+        <div class="pricing-row popular">
+            <span class="popular-badge">M&#193;S POPULAR</span>
+            <div><p class="p-name">Escapada / Finde</p><p class="p-desc">Fin de semana o puente festivo.</p></div>
+            <div class="p-days">2 d&#237;as</div>
+            <div class="p-price"><span class="amount">$19.990</span><span class="label">Tarifa Total</span></div>
+        </div>
+        <div class="pricing-row">
+            <div><p class="p-name">Aventura</p><p class="p-desc">Traves&#237;as tipo Sierra de Ram&#243;n.</p></div>
+            <div class="p-days">3 d&#237;as</div>
+            <div class="p-price"><span class="amount">$26.990</span><span class="label">Tarifa Total</span></div>
+        </div>
+        <div class="pricing-row">
+            <div><p class="p-name">Aventura Media</p><p class="p-desc">Traves&#237;as largas, Patagonia.</p></div>
+            <div class="p-days">4&#8211;10 d&#237;as</div>
+            <div class="p-price"><span class="amount">$6.990</span><span class="label">/ por d&#237;a</span></div>
+        </div>
+        <div class="pricing-row">
+            <div><p class="p-name">Expedici&#243;n Extrema</p><p class="p-desc">Alta monta&#241;a o viajes remotos prolongados.</p></div>
+            <div class="p-days">11+ d&#237;as</div>
+            <div class="p-price"><span class="amount">$5.990</span><span class="label">/ por d&#237;a</span></div>
+        </div>
+    </div>
+    <p class="pricing-note">Los valores no incluyen garant&#237;a reembolsable de $100.000. Despacho v&#237;a Blue Express se cotiza en el checkout.</p>
+    <div style="text-align:center;margin-top:2rem">
+        <button class="btn-primary" style="padding:0.75rem 2.5rem;font-size:0.95rem;" onclick="openCart()">CALCULAR TU ARRIENDO ONLINE</button>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq" style="padding-top:2.25rem;padding-bottom:2.25rem">
+    <p class="section-title">PREGUNTAS FRECUENTES</p>
+    <div class="faq-container" style="margin-top:1.25rem">
+
+        <details class="faq-item">
+            <summary class="faq-q">&#191;Tengo cobertura solo en Chile o en todo el mundo?</summary>
+            <p class="faq-a">Cobertura verdaderamente global v&#237;a red Iridium, de polo a polo. Funciona igual en Atacama, la Cordillera, la Ant&#225;rtica o el Himalaya.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-q">&#191;Cu&#225;nto demora el despacho y en cu&#225;ntos d&#237;as llega el equipo?</summary>
+            <p class="faq-a">Blue Express despacha en 24&#8211;48 horas h&#225;biles desde Santiago. Para la Regi&#243;n Metropolitana y zonas Centro el plazo estimado es 1&#8211;2 d&#237;as h&#225;biles; para zonas Extremo (Arica, Antofagasta, Ays&#233;n, Magallanes), 2&#8211;3 d&#237;as h&#225;biles. Recibir&#225;s un link de tracking por WhatsApp en cuanto el equipo salga de bodega. Por eso te recomendamos reservar con 3&#8211;4 d&#237;as de anticipaci&#243;n.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-q">&#191;C&#243;mo funciona el dep&#243;sito de seguridad?</summary>
+            <p class="faq-a">Se retiene $100.000 en tu tarjeta al pagar. No es un cobro &mdash; es un hold. Se libera autom&#225;ticamente en 3&#8211;5 d&#237;as h&#225;biles al devolver el equipo en buenas condiciones. Cubre excedentes de mensajer&#237;a y da&#241;os menores.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-q">&#191;Puedo cancelar o modificar mi reserva?</summary>
+            <p class="faq-a">S&#237;. Puedes cancelar sin costo hasta 48 horas antes de la fecha de retiro. Entre 48 y 24 horas antes se cobra el 50% del arriendo. Con menos de 24 horas no hay reembolso. Para modificaciones de fecha esc&#237;benos por WhatsApp &mdash; est&#225;n sujetas a disponibilidad.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-q">&#191;Qu&#233; pasa si necesito extender el arriendo?</summary>
+            <p class="faq-a">Esc&#237;benos por WhatsApp antes de que venza tu reserva y verificamos disponibilidad. Si el equipo est&#225; libre, lo extendemos y te enviamos el cobro de los d&#237;as adicionales. No garantizamos disponibilidad en temporada alta, por lo que recomendamos reservar con margen.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-q">&#191;Qu&#233; pasa si pierdo el equipo o me lo roban?</summary>
+            <p class="faq-a">El valor de reposici&#243;n del equipo es $450.000. La garant&#237;a de $100.000 retenida cubre da&#241;os menores y excedentes de mensajer&#237;a. En caso de p&#233;rdida o robo total, se cobra la diferencia entre la garant&#237;a retenida y el valor de reposici&#243;n. Te recomendamos incluirlo en tu seguro de viaje o monta&#241;a si cuentas con uno.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-q">&#191;Qu&#233; pasa si tengo que usar el bot&#243;n SOS?</summary>
+            <p class="faq-a">Al presionar SOS te comunicar&#225;s con el Garmin Response Center (24/7), quienes coordinan con Socorro Andino, rescate o evacuaci&#243;n m&#233;dica hasta tu ubicaci&#243;n exacta. El SOS no tiene costo adicional &mdash; est&#225; incluido en el plan.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-q">&#191;C&#243;mo cargo mi ruta de Wikiloc o AllTrails al GPS?</summary>
+            <p class="faq-a">Al completar tu reserva hay un formulario donde puedes pegar el link de tu ruta (Wikiloc, AllTrails u otro). Nosotros la cargamos al GPS antes de despachar el equipo. Si no tienes ruta previa, tambi&#233;n puedes cargarla t&#250; mismo desde la app Garmin Explore una vez que recibas el equipo.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-q">&#191;Es dif&#237;cil de usar si nunca tuve un GPS satelital?</summary>
+            <p class="faq-a">Cero fricci&#243;n. El equipo llega configurado y se enlaza por Bluetooth a tu celular para escribir mensajes como WhatsApp v&#237;a la app Garmin Explore. Incluimos una gu&#237;a de inicio r&#225;pido en el kit.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-q">&#191;Qu&#233; diferencia hay entre el inReach Mini 2 y un SPOT o un tel&#233;fono satelital?</summary>
+            <p class="faq-a">El inReach Mini 2 usa la red Iridium (cobertura 100% global, polo a polo), mientras que SPOT usa Globalstar, que tiene zonas ciegas en el sur de Chile y la Patagonia. A diferencia de los tel&#233;fonos satelitales, el inReach es compacto (100 g), permite mensajer&#237;a bidireccional ilimitada y el SOS conecta con el IERCC Garmin &mdash; un centro de respuesta certificado que coordina el rescate directamente con servicios de emergencia locales.</p>
+        </details>
+
     </div>
 </section>
 
@@ -774,14 +583,10 @@ function showTab(tab) {
 <section class="cta-band">
     <h2>No arriesgues tu vida ni la<br>tranquilidad de tu familia.</h2>
     <button class="btn-primary" style="font-size:1rem;padding:0.85rem 2.5rem;" onclick="openCart()">RESERVA AHORA Y EXPLORA SEGURO</button>
-    <p>Planifica tu aventura ¡Reserva con tiempo!</p>
+    <p>Planifica tu aventura &#161;Reserva con tiempo!</p>
     <div class="alliances">
         <p>NUESTRAS ALIANZAS</p>
         <div class="alliance-logos">
-            <span>Club Alemán Andino</span>
-            <span>DAV Chile</span>
-            <span><i class="fa-solid fa-cross" style="color:#E84A0C"></i> Socorro Andino Chileno</span>
-            <span>Federación de Andinismo</span>
             <span>RAMUCH</span>
         </div>
     </div>
@@ -792,7 +597,7 @@ function showTab(tab) {
     <div class="footer-grid">
         <div class="footer-brand">
             <h2>Safe2Go</h2>
-            <p>Explora lejos, vuelve seguro.<br></p>
+            <p>Explora lejos, vuelve seguro.</p>
         </div>
         <div class="footer-col">
             <h3>SERVICIOS</h3>
@@ -800,35 +605,32 @@ function showTab(tab) {
             <a href="#">Planes Corporativos</a>
         </div>
         <div class="footer-col">
-            <h3>COMPAÑÍA</h3>
-            <a href="https://drive.google.com/file/d/1OJlIHudFYjwCb7YuSRJfyWXsMJH6CBkp/view?usp=sharing" target="_blank">Términos y condiciones</a>
+            <h3>COMPA&#209;&#205;A</h3>
+            <a href="https://drive.google.com/file/d/1OJlIHudFYjwCb7YuSRJfyWXsMJH6CBkp/view?usp=sharing" target="_blank">T&#233;rminos y condiciones</a>
             <a href="#" onclick="document.getElementById('corp-modal').style.display='flex'; return false;">Contacto</a>
         </div>
         <div class="footer-col">
-            <h3>SÍGUENOS</h3>
+            <h3>S&#205;GUENOS</h3>
             <div class="social-row">
                 <a href="https://www.instagram.com/safe2go.chile/" class="social-btn" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
             </div>
         </div>
     </div>
-    <div class="footer-bottom">© 2026 Safe2Go. Explora lejos, vuelve seguro.</div>
+    <div class="footer-bottom">&copy; 2026 Safe2Go. Explora lejos, vuelve seguro.</div>
 </footer>
+
 <!-- ===== CART DRAWER ===== -->
 <div id="cart-backdrop" onclick="closeCart()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1000;"></div>
 
 <!-- MODAL SIN STOCK -->
 <div id="modal-sin-stock" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:2000;align-items:center;justify-content:center;">
     <div style="background:#fff;border-radius:16px;padding:2.5rem;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.3);">
-        <div style="width:64px;height:64px;background:rgba(232,74,12,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
-            <i class="fa-solid fa-calendar-xmark" style="color:#E84A0C;font-size:1.75rem;"></i>
-        </div>
+        <div style="width:64px;height:64px;background:rgba(232,74,12,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;"><i class="fa-solid fa-calendar-xmark" style="color:#E84A0C;font-size:1.75rem;"></i></div>
         <h3 style="font-family:'Space Grotesk',sans-serif;color:#1E2B35;font-size:1.2rem;font-weight:700;margin-bottom:0.75rem">Sin disponibilidad para esas fechas</h3>
-        <p style="color:#666;font-size:0.88rem;line-height:1.6;margin-bottom:1.5rem">Lo sentimos, no contamos con equipos disponibles para el período seleccionado. Hemos registrado tu solicitud y te contactaremos si se libera un equipo.</p>
+        <p style="color:#666;font-size:0.88rem;line-height:1.6;margin-bottom:1.5rem">Lo sentimos, no contamos con equipos disponibles para el per&#237;odo seleccionado. Hemos registrado tu solicitud y te contactaremos si se libera un equipo.</p>
         <div style="display:flex;flex-direction:column;gap:0.75rem">
-            <a href="https://wa.me/56935706918?text=Hola%20Safe2Go%2C%20quiero%20consultar%20disponibilidad%20para%20mis%20fechas." target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:0.85rem;background:#25D366;color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.9rem;">
-                <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
-            </a>
+            <a href="https://wa.me/56935706918?text=Hola%20Safe2Go%2C%20quiero%20consultar%20disponibilidad%20para%20mis%20fechas." target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:0.85rem;background:#25D366;color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.9rem;"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</a>
             <button onclick="document.getElementById('modal-sin-stock').style.display='none'" style="padding:0.75rem;border:1.5px solid #eee;background:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;color:#666;">Cerrar y cambiar fechas</button>
         </div>
     </div>
@@ -837,183 +639,82 @@ function showTab(tab) {
 <div id="cart-drawer" style="display:none;position:fixed;top:0;right:0;width:420px;max-width:100vw;height:100vh;background:#fff;z-index:1001;box-shadow:-4px 0 32px rgba(0,0,0,0.15);overflow-y:auto;flex-direction:column;">
     <div style="padding:1.5rem;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#fff;z-index:10">
         <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:700;color:#1E2B35">Tu Reserva</h3>
-        <button onclick="closeCart()" style="background:none;border:none;font-size:1.4rem;cursor:pointer;color:#1E2B35;line-height:1">✕</button>
+        <button onclick="closeCart()" style="background:none;border:none;font-size:1.4rem;cursor:pointer;color:#1E2B35;line-height:1">&#10005;</button>
     </div>
-
     <div style="padding:1.5rem;flex:1">
-        <!-- STEP INDICATORS -->
         <div style="display:flex;gap:0;margin-bottom:1.5rem;border-bottom:2px solid #eee">
             <div id="ind-1" style="padding:0.5rem 1rem;font-size:0.82rem;font-weight:700;color:#E84A0C;border-bottom:2px solid #E84A0C;margin-bottom:-2px">1. Fechas y Datos</div>
             <div id="ind-2" style="padding:0.5rem 1rem;font-size:0.82rem;font-weight:500;color:#aaa;border-bottom:2px solid transparent;margin-bottom:-2px">2. Pago</div>
         </div>
-
         <form id="checkout-form">
-            <!-- PASO 1: FECHAS + DATOS UNIFICADOS -->
+            <!-- PASO 1 -->
             <div id="cart-step-1">
                 <div style="background:#f8f9fa;border-radius:10px;padding:1rem;margin-bottom:1rem">
-                    <h4 style="font-size:0.92rem;font-weight:700;color:#1E2B35;margin-bottom:0.25rem">Kit Garmin inReach Mini 2 — Plug & Play</h4>
-                    <p style="font-size:0.78rem;color:#666;line-height:1.5"><i class="fa-solid fa-satellite-dish" style="color:#E84A0C;margin-right:4px"></i>SOS Satelital Ilimitado · Check-ins Ilimitados · 10 SMS satelitales incluidos</p>
+                    <h4 style="font-size:0.92rem;font-weight:700;color:#1E2B35;margin-bottom:0.25rem">Kit Garmin inReach Mini 2 &mdash; Plug &amp; Play</h4>
+                    <p style="font-size:0.78rem;color:#666;line-height:1.5"><i class="fa-solid fa-satellite-dish" style="color:#E84A0C;margin-right:4px"></i>SOS Satelital Ilimitado &middot; Check-ins Ilimitados &middot; 10 SMS satelitales incluidos</p>
                 </div>
-
-                <!-- FECHAS -->
-                <p style="font-size:0.8rem;font-weight:700;color:#1E2B35;margin-bottom:0.5rem;letter-spacing:0.5px">📅 FECHAS</p>
+                <p style="font-size:0.8rem;font-weight:700;color:#1E2B35;margin-bottom:0.5rem;letter-spacing:0.5px">&#128197; FECHAS</p>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem">
-                    <div>
-                        <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">Fecha de retiro *</label>
-                        <input type="date" id="cart-start" oninput="calcPrice()" style="width:100%;padding:0.6rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
-                    </div>
-                    <div>
-                        <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">Fecha de devolución *</label>
-                        <input type="date" id="cart-end" oninput="calcPrice()" style="width:100%;padding:0.6rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
-                    </div>
+                    <div><label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">Fecha de retiro *</label><input type="date" id="cart-start" oninput="calcPrice()" style="width:100%;padding:0.6rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif"></div>
+                    <div><label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">Fecha de devoluci&#243;n *</label><input type="date" id="cart-end" oninput="calcPrice()" style="width:100%;padding:0.6rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif"></div>
                 </div>
-
-                <!-- RESUMEN PRECIO -->
                 <div id="price-summary" style="display:none;background:#f8f9fa;border-radius:10px;padding:1rem;margin-bottom:1rem">
-                    <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem">
-                        <span style="font-size:0.85rem;color:#666">Subtotal arriendo (<span id="summary-days">0</span> días)</span>
-                        <span style="font-size:0.85rem;font-weight:700;color:#1E2B35" id="summary-subtotal">$0</span>
-                    </div>
-                    <div style="border-top:1px dashed #ddd;margin:0.5rem 0;padding-top:0.5rem;display:flex;justify-content:space-between">
-                        <span style="font-size:0.95rem;font-weight:700;color:#1E2B35">A pagar hoy</span>
-                        <span style="font-size:1.1rem;font-weight:800;color:#E84A0C" id="summary-total">$0</span>
-                    </div>
+                    <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem"><span style="font-size:0.85rem;color:#666">Subtotal arriendo (<span id="summary-days">0</span> d&#237;as)</span><span style="font-size:0.85rem;font-weight:700;color:#1E2B35" id="summary-subtotal">$0</span></div>
+                    <div style="border-top:1px dashed #ddd;margin:0.5rem 0;padding-top:0.5rem;display:flex;justify-content:space-between"><span style="font-size:0.95rem;font-weight:700;color:#1E2B35">A pagar hoy</span><span style="font-size:1.1rem;font-weight:800;color:#E84A0C" id="summary-total">$0</span></div>
                     <div style="background:rgba(232,74,12,0.06);border:1px solid rgba(232,74,12,0.15);border-radius:8px;padding:0.75rem;margin-top:0.5rem">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
-                            <span style="font-size:0.78rem;font-weight:600;color:#E84A0C"><i class="fa-solid fa-shield-halved"></i> Garantía reembolsable</span>
-                            <span style="font-size:0.82rem;font-weight:700;color:#E84A0C">$100.000</span>
-                        </div>
-                        <p style="font-size:0.72rem;color:#b85a1a;line-height:1.45;margin:0">Recibirás el link de pago de la garantía por correo electrónico una vez confirmado el pago del arriendo.</p>
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px"><span style="font-size:0.78rem;font-weight:600;color:#E84A0C"><i class="fa-solid fa-shield-halved"></i> Garant&#237;a reembolsable</span><span style="font-size:0.82rem;font-weight:700;color:#E84A0C">$100.000</span></div>
+                        <p style="font-size:0.72rem;color:#b85a1a;line-height:1.45;margin:0">Recibir&#225;s el link de pago de la garant&#237;a por correo electr&#243;nico una vez confirmado el pago del arriendo.</p>
                     </div>
-                    <div id="tramo-badge" style="margin-top:0.5rem;text-align:center">
-                        <span style="background:#1E2B35;color:#fff;font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:4px;letter-spacing:0.5px"></span>
-                    </div>
+                    <div id="tramo-badge" style="margin-top:0.5rem;text-align:center"><span style="background:#1E2B35;color:#fff;font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:4px;letter-spacing:0.5px"></span></div>
                 </div>
-
-                <!-- SEPARADOR -->
-                <div style="border-top:1px solid #eee;margin:1rem 0;padding-top:1rem">
-                    <p style="font-size:0.8rem;font-weight:700;color:#1E2B35;margin-bottom:0.75rem;letter-spacing:0.5px">👤 TUS DATOS</p>
-                </div>
-
-                <!-- DATOS PERSONALES -->
+                <div style="border-top:1px solid #eee;margin:1rem 0;padding-top:1rem"><p style="font-size:0.8rem;font-weight:700;color:#1E2B35;margin-bottom:0.75rem;letter-spacing:0.5px">&#128100; TUS DATOS</p></div>
                 <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1rem">
-                    <div>
-                        <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">Nombre y apellido *</label>
-                        <input type="text" id="inp-nombre" placeholder="Nombre y apellido" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
-                    </div>
+                    <div><label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">Nombre y apellido *</label><input type="text" id="inp-nombre" placeholder="Nombre y apellido" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif"></div>
                     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem">
-                        <div>
-                            <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">Email *</label>
-                            <input type="email" id="inp-email" placeholder="correo@ejemplo.com" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
-                        </div>
-                        <div>
-                            <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">RUT o Pasaporte *</label>
-                            <input type="text" id="inp-rut" placeholder="12.345.678-9" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
-                        </div>
+                        <div><label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">Email *</label><input type="email" id="inp-email" placeholder="correo@ejemplo.com" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif"></div>
+                        <div><label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">RUT o Pasaporte *</label><input type="text" id="inp-rut" placeholder="12.345.678-9" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif"></div>
                     </div>
-                    <div>
-                        <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">WhatsApp *</label>
-                        <input type="tel" id="inp-tel" placeholder="+56 9 1234 5678" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif">
-                    </div>
+                    <div><label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:4px">WhatsApp *</label><input type="tel" id="inp-tel" placeholder="+56 9 1234 5678" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif"></div>
                 </div>
-
-                <!-- MODALIDAD DE ENTREGA -->
                 <div style="margin-bottom:1rem">
                     <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:8px"><i class="fa-solid fa-box-open" style="margin-right:4px"></i>Modalidad de entrega *</label>
                     <div style="display:flex;flex-direction:column;gap:0.5rem">
-                        <label style="display:flex;align-items:center;gap:10px;padding:0.75rem;border:1.5px solid #eee;border-radius:8px;cursor:pointer" id="opt-oficina">
-                            <input type="radio" name="entrega" value="oficina" checked onchange="selectEntrega(this)">
-                            <div>
-                                <p style="font-weight:600;font-size:0.85rem;margin:0">Retiro en oficina Santiago — <span style="color:#1D9E75">Gratis</span></p>
-                                <p style="font-size:0.75rem;color:#888;margin:2px 0 0">Abdón Cifuentes 215, Santiago · Metro República · 09:00 a 17:00 hrs</p>
-                            </div>
-                        </label>
-                        <label style="display:flex;align-items:center;gap:10px;padding:0.75rem;border:1.5px solid #eee;border-radius:8px;cursor:pointer" id="opt-domicilio">
-                            <input type="radio" name="entrega" value="domicilio" onchange="selectEntrega(this)">
-                            <div>
-                                <p style="font-weight:600;font-size:0.85rem;margin:0">Despacho a domicilio — Blue Express</p>
-                                <p style="font-size:0.75rem;color:#888;margin:2px 0 0">Incluye etiqueta de retorno prepagada · precio según región</p>
-                            </div>
-                        </label>
-                        <label style="display:flex;align-items:center;gap:10px;padding:0.75rem;border:1.5px solid #eee;border-radius:8px;cursor:pointer" id="opt-puntoBX">
-                            <input type="radio" name="entrega" value="puntoBX" onchange="selectEntrega(this)">
-                            <div>
-                                <p style="font-weight:600;font-size:0.85rem;margin:0">Punto Blue Express</p>
-                                <p style="font-size:0.75rem;color:#888;margin:2px 0 0">Retira en el punto más cercano · precio según región</p>
-                            </div>
-                        </label>
+                        <label style="display:flex;align-items:center;gap:10px;padding:0.75rem;border:1.5px solid #eee;border-radius:8px;cursor:pointer" id="opt-oficina"><input type="radio" name="entrega" value="oficina" checked onchange="selectEntrega(this)"><div><p style="font-weight:600;font-size:0.85rem;margin:0">Retiro en oficina Santiago &mdash; <span style="color:#1D9E75">Gratis</span></p><p style="font-size:0.75rem;color:#888;margin:2px 0 0">Abd&#243;n Cifuentes 215, Santiago &middot; Metro Rep&#250;blica &middot; 09:00 a 17:00 hrs</p></div></label>
+                        <label style="display:flex;align-items:center;gap:10px;padding:0.75rem;border:1.5px solid #eee;border-radius:8px;cursor:pointer" id="opt-domicilio"><input type="radio" name="entrega" value="domicilio" onchange="selectEntrega(this)"><div><p style="font-weight:600;font-size:0.85rem;margin:0">Despacho a domicilio &mdash; Blue Express</p><p style="font-size:0.75rem;color:#888;margin:2px 0 0">Incluye etiqueta de retorno prepagada &middot; precio seg&#250;n regi&#243;n</p></div></label>
+                        <label style="display:flex;align-items:center;gap:10px;padding:0.75rem;border:1.5px solid #eee;border-radius:8px;cursor:pointer" id="opt-puntoBX"><input type="radio" name="entrega" value="puntoBX" onchange="selectEntrega(this)"><div><p style="font-weight:600;font-size:0.85rem;margin:0">Punto Blue Express</p><p style="font-size:0.75rem;color:#888;margin:2px 0 0">Retira en el punto m&#225;s cercano &middot; precio seg&#250;n regi&#243;n</p></div></label>
                     </div>
-
-                    <!-- SELECTOR DE REGIÓN -->
                     <div id="region-selector" style="display:none;margin-top:0.75rem">
-                        <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:6px">Selecciona tu región *</label>
+                        <label style="font-size:0.78rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:6px">Selecciona tu regi&#243;n *</label>
                         <select id="select-region" onchange="calcDespacho()" style="width:100%;padding:0.65rem;border:1.5px solid #eee;border-radius:8px;font-size:0.85rem;font-family:'Inter',sans-serif;background:#fff;color:#1E2B35">
-                            <option value="">— Selecciona tu región —</option>
-                            <optgroup label="Zona RM">
-                                <option value="RM">Región Metropolitana</option>
-                            </optgroup>
+                            <option value="">&#8212; Selecciona tu regi&#243;n &#8212;</option>
+                            <optgroup label="Zona RM"><option value="RM">Regi&#243;n Metropolitana</option></optgroup>
                             <optgroup label="Zona Centro">
-                                <option value="Centro">Atacama</option>
-                                <option value="Centro">Coquimbo</option>
-                                <option value="Centro">Valparaíso</option>
-                                <option value="Centro">O'Higgins</option>
-                                <option value="Centro">Maule</option>
-                                <option value="Centro">Ñuble</option>
-                                <option value="Centro">Biobío</option>
-                                <option value="Centro">Araucanía</option>
-                                <option value="Centro">Los Ríos</option>
-                                <option value="Centro">Los Lagos</option>
+                                <option value="Centro">Atacama</option><option value="Centro">Coquimbo</option><option value="Centro">Valpara&#237;so</option><option value="Centro">O'Higgins</option><option value="Centro">Maule</option><option value="Centro">&#209;uble</option><option value="Centro">Biob&#237;o</option><option value="Centro">Araucan&#237;a</option><option value="Centro">Los R&#237;os</option><option value="Centro">Los Lagos</option>
                             </optgroup>
                             <optgroup label="Zona Extremo">
-                                <option value="Extremo">Arica y Parinacota</option>
-                                <option value="Extremo">Tarapacá</option>
-                                <option value="Extremo">Antofagasta</option>
-                                <option value="Extremo">Aysén</option>
-                                <option value="Extremo">Magallanes</option>
+                                <option value="Extremo">Arica y Parinacota</option><option value="Extremo">Tarapac&#225;</option><option value="Extremo">Antofagasta</option><option value="Extremo">Ays&#233;n</option><option value="Extremo">Magallanes</option>
                             </optgroup>
                         </select>
                         <div id="despacho-result" style="display:none;margin-top:0.6rem;background:#f0f9f4;border:1px solid #9FE1CB;border-radius:8px;padding:0.75rem">
-                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-                                <span style="font-size:0.78rem;color:#085041;font-weight:600" id="despacho-label">Costo de despacho</span>
-                                <span style="font-size:1rem;font-weight:800;color:#0F6E56" id="despacho-price">$0</span>
-                            </div>
+                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><span style="font-size:0.78rem;color:#085041;font-weight:600" id="despacho-label">Costo de despacho</span><span style="font-size:1rem;font-weight:800;color:#0F6E56" id="despacho-price">$0</span></div>
                             <p style="font-size:0.72rem;color:#0F6E56;margin:0" id="despacho-detalle"></p>
                         </div>
                         <div id="total-con-despacho" style="display:none;margin-top:0.75rem;background:#1E2B35;border-radius:10px;padding:0.85rem">
-                            <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-                                <span style="font-size:0.78rem;color:rgba(255,255,255,0.6)">Arriendo</span>
-                                <span style="font-size:0.82rem;color:#fff;font-weight:600" id="total-arriendo-line">$0</span>
-                            </div>
-                            <div style="display:flex;justify-content:space-between;margin-bottom:8px">
-                                <span style="font-size:0.78rem;color:rgba(255,255,255,0.6)">Despacho Blue Express</span>
-                                <span style="font-size:0.82rem;color:#fff;font-weight:600" id="total-despacho-line">$0</span>
-                            </div>
-                            <div style="border-top:1px solid rgba(255,255,255,0.15);padding-top:8px;display:flex;justify-content:space-between">
-                                <span style="font-size:0.88rem;font-weight:700;color:#fff">Total a pagar</span>
-                                <span style="font-size:1.1rem;font-weight:800;color:#E84A0C" id="total-final-line">$0</span>
-                            </div>
+                            <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:0.78rem;color:rgba(255,255,255,0.6)">Arriendo</span><span style="font-size:0.82rem;color:#fff;font-weight:600" id="total-arriendo-line">$0</span></div>
+                            <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="font-size:0.78rem;color:rgba(255,255,255,0.6)">Despacho Blue Express</span><span style="font-size:0.82rem;color:#fff;font-weight:600" id="total-despacho-line">$0</span></div>
+                            <div style="border-top:1px solid rgba(255,255,255,0.15);padding-top:8px;display:flex;justify-content:space-between"><span style="font-size:0.88rem;font-weight:700;color:#fff">Total a pagar</span><span style="font-size:1.1rem;font-weight:800;color:#E84A0C" id="total-final-line">$0</span></div>
                         </div>
                     </div>
                 </div>
-
-                <!-- CONVENIO -->
                 <div style="background:#f8f9fa;border-radius:8px;padding:0.85rem;margin-bottom:1rem">
                     <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer">
                         <input type="checkbox" id="convenio-check" style="margin-top:3px" onchange="toggleConvenio()">
-                        <div>
-                            <span style="font-size:0.82rem;font-weight:600;color:#1E2B35">Soy socio/a de un club u organismo con convenio Safe2Go</span>
-                            <p style="font-size:0.75rem;color:#888;margin:2px 0 0">En caso de estar en nómina, la garantía no será requerida.</p>
-                        </div>
+                        <div><span style="font-size:0.82rem;font-weight:600;color:#1E2B35">Soy socio/a de un club u organismo con convenio Safe2Go</span><p style="font-size:0.75rem;color:#888;margin:2px 0 0">En caso de estar en n&#243;mina, la garant&#237;a no ser&#225; requerida.</p></div>
                     </label>
-                    <div id="convenio-fields" style="display:none;margin-top:0.75rem;display:none;flex-direction:column;gap:0.5rem">
-                        <div>
-                            <label style="font-size:0.75rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:3px">Club u organismo *</label>
-                            <input type="text" id="inp-club" placeholder="Ej: RAMUCH, Club Alemán Andino..." style="width:100%;padding:0.6rem;border:1.5px solid #eee;border-radius:8px;font-size:0.82rem;font-family:'Inter',sans-serif">
-                        </div>
-                        
+                    <div id="convenio-fields" style="display:none;margin-top:0.75rem;flex-direction:column;gap:0.5rem">
+                        <div><label style="font-size:0.75rem;font-weight:600;color:#1E2B35;display:block;margin-bottom:3px">Club u organismo *</label><input type="text" id="inp-club" placeholder="Ej: RAMUCH, Club Alem&#225;n Andino..." style="width:100%;padding:0.6rem;border:1.5px solid #eee;border-radius:8px;font-size:0.82rem;font-family:'Inter',sans-serif"></div>
                     </div>
                 </div>
-
                 <button onclick="goStep(2)" id="btn-step1" disabled style="width:100%;padding:0.8rem;background:#ccc;color:#fff;border:none;border-radius:8px;font-size:0.92rem;font-weight:700;cursor:not-allowed;font-family:'Space Grotesk',sans-serif">Ir a Pagar <i class="fa-solid fa-arrow-right"></i></button>
             </div>
 
@@ -1022,31 +723,19 @@ function showTab(tab) {
                 <div style="background:#f8f9fa;border-radius:12px;padding:1.25rem;text-align:center;margin-bottom:1.25rem">
                     <p style="font-size:0.85rem;color:#666;margin-bottom:0.25rem">A pagar hoy</p>
                     <p style="font-size:2rem;font-weight:800;color:#E84A0C;font-family:'Space Grotesk',sans-serif" id="final-total">$0</p>
-                    <div style="display:inline-block;background:rgba(232,74,12,0.1);padding:4px 14px;border-radius:20px;margin-top:0.5rem">
-                        <p style="font-size:0.75rem;font-weight:600;color:#E84A0C"><i class="fa-solid fa-shield-halved"></i> Garantía reembolsable de $100.000</p>
-                    </div>
-                    <p style="font-size:0.72rem;color:#888;margin-top:0.4rem;line-height:1.5">Recibirás el link de pago de la garantía por correo electrónico una vez confirmado el pago del arriendo.</p>
-                    <p style="font-size:0.75rem;color:#aaa;margin-top:0.5rem"><i class="fa-solid fa-shield-check"></i> Conexión bancaria 100% encriptada</p>
+                    <div style="display:inline-block;background:rgba(232,74,12,0.1);padding:4px 14px;border-radius:20px;margin-top:0.5rem"><p style="font-size:0.75rem;font-weight:600;color:#E84A0C"><i class="fa-solid fa-shield-halved"></i> Garant&#237;a reembolsable de $100.000</p></div>
+                    <p style="font-size:0.72rem;color:#888;margin-top:0.4rem;line-height:1.5">Recibir&#225;s el link de pago de la garant&#237;a por correo electr&#243;nico una vez confirmado el pago del arriendo.</p>
+                    <p style="font-size:0.75rem;color:#aaa;margin-top:0.5rem"><i class="fa-solid fa-shield-check"></i> Conexi&#243;n bancaria 100% encriptada</p>
                 </div>
-
                 <div style="background:#f8f9fa;border-radius:8px;padding:0.85rem;margin-bottom:1rem">
                     <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer">
                         <input type="checkbox" id="legal-check" style="margin-top:3px" onchange="togglePay()">
-                        <span style="font-size:0.78rem;color:#666;line-height:1.6">He leído y acepto los <a href="https://drive.google.com/file/d/1OJlIHudFYjwCb7YuSRJfyWXsMJH6CBkp/view?usp=sharing" target="_blank" style="color:#E84A0C;font-weight:700;text-decoration:underline">Términos y Condiciones</a> de Safe2Go, que incluyen: <strong>política de garantía reembolsable</strong> ($100.000 retenida en tarjeta y liberada automáticamente al devolver el equipo en buenas condiciones), <strong>cobertura de excedentes de mensajería satelital</strong> ($600 por mensaje sobre los 10 incluidos), <strong>responsabilidad por pérdida o robo</strong> del equipo (valor de reposición $450.000), <strong>condiciones de devolución</strong> (plazo, estado del equipo y etiqueta prepagada Blue Express) y <strong>política de cancelación y modificación</strong> de reservas.</span>
+                        <span style="font-size:0.78rem;color:#666;line-height:1.6">He le&#237;do y acepto los <a href="https://drive.google.com/file/d/1OJlIHudFYjwCb7YuSRJfyWXsMJH6CBkp/view?usp=sharing" target="_blank" style="color:#E84A0C;font-weight:700;text-decoration:underline">T&#233;rminos y Condiciones</a> de Safe2Go, que incluyen: <strong>pol&#237;tica de garant&#237;a reembolsable</strong> ($100.000 retenida en tarjeta y liberada autom&#225;ticamente al devolver el equipo en buenas condiciones), <strong>cobertura de excedentes de mensajer&#237;a satelital</strong> ($600 por mensaje sobre los 10 incluidos), <strong>responsabilidad por p&#233;rdida o robo</strong> del equipo (valor de reposici&#243;n $450.000), <strong>condiciones de devoluci&#243;n</strong> (plazo, estado del equipo y etiqueta prepagada Blue Express) y <strong>pol&#237;tica de cancelaci&#243;n y modificaci&#243;n</strong> de reservas.</span>
                     </label>
                 </div>
-
-                <p style="font-size:0.82rem;text-align:center;color:#888;margin-bottom:0.75rem">Selecciona tu método de pago</p>
-
-                <button id="btn-webpay" disabled onclick="alert('Webpay estará disponible próximamente.')" style="width:100%;padding:0.85rem;background:#ccc;color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:700;cursor:not-allowed;margin-bottom:0.6rem;font-family:'Space Grotesk',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px">
-                    Pagar con Webpay Plus
-                    <img src="https://tbk.azureedge.net/img/wpp_p_ch-45.png" alt="Webpay" style="height:18px">
-                </button>
-
-                <button id="btn-mp" disabled onclick="alert('MercadoPago estará disponible próximamente.')" style="width:100%;padding:0.85rem;background:#ccc;color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:700;cursor:not-allowed;margin-bottom:1rem;font-family:'Space Grotesk',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px">
-                    <i class="fa-solid fa-handshake"></i> Pagar con MercadoPago
-                </button>
-
+                <p style="font-size:0.82rem;text-align:center;color:#888;margin-bottom:0.75rem">Selecciona tu m&#233;todo de pago</p>
+                <button id="btn-webpay" disabled onclick="alert('Webpay estar&#225; disponible pr&#243;ximamente.')" style="width:100%;padding:0.85rem;background:#ccc;color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:700;cursor:not-allowed;margin-bottom:0.6rem;font-family:'Space Grotesk',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px">Pagar con Webpay Plus <img src="https://tbk.azureedge.net/img/wpp_p_ch-45.png" alt="Webpay" style="height:18px"></button>
+                <button id="btn-mp" disabled onclick="alert('MercadoPago estar&#225; disponible pr&#243;ximamente.')" style="width:100%;padding:0.85rem;background:#ccc;color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:700;cursor:not-allowed;margin-bottom:1rem;font-family:'Space Grotesk',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px"><i class="fa-solid fa-handshake"></i> Pagar con MercadoPago</button>
                 <button onclick="goStep(1)" style="width:100%;padding:0.7rem;border:1.5px solid #eee;background:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;color:#666;font-family:'Inter',sans-serif">Volver</button>
             </div>
         </form>
@@ -1054,131 +743,17 @@ function showTab(tab) {
 </div>
 
 <script>
-var TARIFAS_BX = {
-    RM:      { domicilio: 6990, puntoBX: 5990 },
-    Centro:  { domicilio: 9990, puntoBX: 8990 },
-    Extremo: { domicilio: 11990, puntoBX: 10990 }
-};
-var currentTotal = 0;
-var currentDespacho = 0;
-var currentStep = 1;
-
-function openCart() {
-    document.getElementById('cart-drawer').style.display = 'flex';
-    document.getElementById('cart-backdrop').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-    var today = new Date().toISOString().split('T')[0];
-    document.getElementById('cart-start').min = today;
-    document.getElementById('cart-end').min = today;
-}
-
-function closeCart() {
-    document.getElementById('cart-drawer').style.display = 'none';
-    document.getElementById('cart-backdrop').style.display = 'none';
-    document.body.style.overflow = '';
-}
-
-function goStep(n) {
-    for (var i = 1; i <= 2; i++) {
-        var step = document.getElementById('cart-step-' + i);
-        if (step) step.style.display = i === n ? 'block' : 'none';
-        var ind = document.getElementById('ind-' + i);
-        if (ind) {
-            ind.style.color = i === n ? '#E84A0C' : '#aaa';
-            ind.style.borderBottomColor = i === n ? '#E84A0C' : 'transparent';
-            ind.style.fontWeight = i === n ? '700' : '500';
-        }
-    }
-    if (n === 2) {
-        var total = currentTotal + currentDespacho;
-        document.getElementById('final-total').textContent = formatCLP(total);
-    }
-    currentStep = n;
-    document.getElementById('cart-drawer').scrollTop = 0;
-}
-
-function calcPrice() {
-    var start = document.getElementById('cart-start').value;
-    var end = document.getElementById('cart-end').value;
-    if (!start || !end) return;
-    var d1 = new Date(start), d2 = new Date(end);
-    if (d2 <= d1) { document.getElementById('cart-end').value = ''; return; }
-    document.getElementById('cart-end').min = new Date(d1.getTime() + 86400000).toISOString().split('T')[0];
-    var days = Math.round((d2 - d1) / 86400000);
-    var price, tramoLabel;
-    if (days === 1)      { price = 12990; tramoLabel = 'T1 — Express'; }
-    else if (days === 2) { price = 19990; tramoLabel = 'T2 — Escapada'; }
-    else if (days === 3) { price = 26990; tramoLabel = 'T3 — Aventura'; }
-    else if (days <= 10) { price = days * 6990; tramoLabel = 'T4 — Aventura Media ($6.990/día)'; }
-    else                 { price = days * 5990; tramoLabel = 'T5 — Expedición Extrema ($5.990/día)'; }
-    currentTotal = price;
-    currentDespacho = 0;
-    document.getElementById('summary-days').textContent = days;
-    document.getElementById('summary-subtotal').textContent = formatCLP(price);
-    document.getElementById('summary-total').textContent = formatCLP(price);
-    document.getElementById('tramo-badge').querySelector('span').textContent = tramoLabel;
-    document.getElementById('price-summary').style.display = 'block';
-    var btn = document.getElementById('btn-step1');
-    btn.disabled = false;
-    btn.style.background = '#E84A0C';
-    btn.style.cursor = 'pointer';
-}
-
-function selectEntrega(radio) {
-    ['oficina','domicilio','puntoBX'].forEach(function(v) {
-        var el = document.getElementById('opt-' + v);
-        if (el) el.style.borderColor = v === radio.value ? '#E84A0C' : '#eee';
-    });
-    var showRegion = (radio.value === 'domicilio' || radio.value === 'puntoBX');
-    document.getElementById('region-selector').style.display = showRegion ? 'block' : 'none';
-    document.getElementById('total-con-despacho').style.display = 'none';
-    document.getElementById('despacho-result').style.display = 'none';
-    if (!showRegion) {
-        currentDespacho = 0;
-        document.getElementById('select-region').value = '';
-    }
-}
-
-function calcDespacho() {
-    var zona = document.getElementById('select-region').value;
-    if (!zona) return;
-    var modalidad = document.querySelector('input[name="entrega"]:checked').value;
-    var costo = TARIFAS_BX[zona][modalidad];
-    currentDespacho = costo;
-    var zonaLabel = zona === 'RM' ? 'Región Metropolitana' : zona;
-    var modalidadLabel = modalidad === 'domicilio' ? 'domicilio' : 'punto Blue Express';
-    document.getElementById('despacho-label').textContent = 'Despacho ' + modalidadLabel + ' — Zona ' + zonaLabel;
-    document.getElementById('despacho-price').textContent = formatCLP(costo);
-    document.getElementById('despacho-detalle').textContent = 'Incluye envío de ida + etiqueta de retorno prepagada';
-    document.getElementById('despacho-result').style.display = 'block';
-    var totalConDespacho = currentTotal + costo;
-    document.getElementById('total-arriendo-line').textContent = formatCLP(currentTotal);
-    document.getElementById('total-despacho-line').textContent = formatCLP(costo);
-    document.getElementById('total-final-line').textContent = formatCLP(totalConDespacho);
-    document.getElementById('total-con-despacho').style.display = 'block';
-}
-
-function toggleConvenio() {
-    var checked = document.getElementById('convenio-check').checked;
-    var fields = document.getElementById('convenio-fields');
-    fields.style.display = checked ? 'flex' : 'none';
-}
-
-function togglePay() {
-    var checked = document.getElementById('legal-check').checked;
-    var btnWP = document.getElementById('btn-webpay');
-    var btnMP = document.getElementById('btn-mp');
-    btnWP.disabled = !checked;
-    btnWP.style.background = checked ? '#0070BA' : '#ccc';
-    btnWP.style.cursor = checked ? 'pointer' : 'not-allowed';
-    btnMP.disabled = !checked;
-    btnMP.style.background = checked ? '#009EE3' : '#ccc';
-    btnMP.style.cursor = checked ? 'pointer' : 'not-allowed';
-}
-
-function formatCLP(n) {
-    return '$' + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-}
+var TARIFAS_BX={RM:{domicilio:6990,puntoBX:5990},Centro:{domicilio:9990,puntoBX:8990},Extremo:{domicilio:11990,puntoBX:10990}};
+var currentTotal=0,currentDespacho=0,currentStep=1;
+function openCart(){document.getElementById('cart-drawer').style.display='flex';document.getElementById('cart-backdrop').style.display='block';document.body.style.overflow='hidden';var t=new Date().toISOString().split('T')[0];document.getElementById('cart-start').min=t;document.getElementById('cart-end').min=t}
+function closeCart(){document.getElementById('cart-drawer').style.display='none';document.getElementById('cart-backdrop').style.display='none';document.body.style.overflow=''}
+function goStep(n){for(var i=1;i<=2;i++){var s=document.getElementById('cart-step-'+i);if(s)s.style.display=i===n?'block':'none';var d=document.getElementById('ind-'+i);if(d){d.style.color=i===n?'#E84A0C':'#aaa';d.style.borderBottomColor=i===n?'#E84A0C':'transparent';d.style.fontWeight=i===n?'700':'500'}}if(n===2){var t=currentTotal+currentDespacho;document.getElementById('final-total').textContent=formatCLP(t)}currentStep=n;document.getElementById('cart-drawer').scrollTop=0}
+function calcPrice(){var s=document.getElementById('cart-start').value,e=document.getElementById('cart-end').value;if(!s||!e)return;var d1=new Date(s),d2=new Date(e);if(d2<=d1){document.getElementById('cart-end').value='';return}document.getElementById('cart-end').min=new Date(d1.getTime()+86400000).toISOString().split('T')[0];var days=Math.round((d2-d1)/86400000),price,lbl;if(days===1){price=12990;lbl='T1 — Express'}else if(days===2){price=19990;lbl='T2 — Escapada'}else if(days===3){price=26990;lbl='T3 — Aventura'}else if(days<=10){price=days*6990;lbl='T4 — Aventura Media ($6.990/día)'}else{price=days*5990;lbl='T5 — Expedición Extrema ($5.990/día)'}currentTotal=price;currentDespacho=0;document.getElementById('summary-days').textContent=days;document.getElementById('summary-subtotal').textContent=formatCLP(price);document.getElementById('summary-total').textContent=formatCLP(price);document.getElementById('tramo-badge').querySelector('span').textContent=lbl;document.getElementById('price-summary').style.display='block';var b=document.getElementById('btn-step1');b.disabled=false;b.style.background='#E84A0C';b.style.cursor='pointer'}
+function selectEntrega(r){['oficina','domicilio','puntoBX'].forEach(function(v){var el=document.getElementById('opt-'+v);if(el)el.style.borderColor=v===r.value?'#E84A0C':'#eee'});var show=(r.value==='domicilio'||r.value==='puntoBX');document.getElementById('region-selector').style.display=show?'block':'none';document.getElementById('total-con-despacho').style.display='none';document.getElementById('despacho-result').style.display='none';if(!show){currentDespacho=0;document.getElementById('select-region').value=''}}
+function calcDespacho(){var z=document.getElementById('select-region').value;if(!z)return;var m=document.querySelector('input[name="entrega"]:checked').value,c=TARIFAS_BX[z][m];currentDespacho=c;var zl=z==='RM'?'Región Metropolitana':z,ml=m==='domicilio'?'domicilio':'punto Blue Express';document.getElementById('despacho-label').textContent='Despacho '+ml+' — Zona '+zl;document.getElementById('despacho-price').textContent=formatCLP(c);document.getElementById('despacho-detalle').textContent='Incluye envío de ida + etiqueta de retorno prepagada';document.getElementById('despacho-result').style.display='block';var tot=currentTotal+c;document.getElementById('total-arriendo-line').textContent=formatCLP(currentTotal);document.getElementById('total-despacho-line').textContent=formatCLP(c);document.getElementById('total-final-line').textContent=formatCLP(tot);document.getElementById('total-con-despacho').style.display='block'}
+function toggleConvenio(){var c=document.getElementById('convenio-check').checked,f=document.getElementById('convenio-fields');f.style.display=c?'flex':'none'}
+function togglePay(){var c=document.getElementById('legal-check').checked,bw=document.getElementById('btn-webpay'),bm=document.getElementById('btn-mp');bw.disabled=!c;bw.style.background=c?'#0070BA':'#ccc';bw.style.cursor=c?'pointer':'not-allowed';bm.disabled=!c;bm.style.background=c?'#009EE3':'#ccc';bm.style.cursor=c?'pointer':'not-allowed'}
+function formatCLP(n){return'$'+Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.')}
 </script>
 </body>
 </html>
